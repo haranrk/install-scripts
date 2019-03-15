@@ -1,0 +1,4 @@
+https://plot.ly/python/getting-started/#installationr
+https://medium.com/@briantorresgil/definitive-guide-to-python-on-mac-osx-65acd8d969d0
+
+https://github.com/ipython-contrib/jupyter_contrib_nbextensions

@@ -1,0 +1,20 @@
+function git_branch () {
+	branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+	if [[ $branch == "" ]]; then
+	:
+	else
+		echo ' ('$branch')'
+	fi
+}
+
+export BRANCH=$(git_branch)
+plugins=(git zsh-syntax-highlighting vi-mode osx z web-search tmux you-should-use) 
+#plugins+=(hacker-quoteszsh-autosuggestions )
+source $ZSH/oh-my-zsh.sh
+
+PROMPT='%F{yellow}%2~%F{green}$(git_branch) %F{red}$ %F{reset}'
+alias ezsh="vi ~/.zshrc && source ~/.zshrc"
+alias ezp="vi ~/.zsh_profile && source ~/.zshrc"
+alias check-zsh-startup='time  zsh -i -c exit'
+#TODO 
+#tmux,  autojump, vscode

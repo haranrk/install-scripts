@@ -1,0 +1,47 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+syntax on
+filetype plugin indent on
+
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/limelight.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'easymotion/vim-easymotion'
+"Plug 'Raimondi/delimitMate'
+Plug 'terryma/vim-expand-region'
+Plug 'nathanaelkane/vim-indent-guides'
+call plug#end()
+
+colorscheme nord
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
+set cursorline 
+set number 
+filetype indent on
+set wildmenu
+set lazyredraw
+set showmatch
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
