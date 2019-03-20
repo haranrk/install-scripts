@@ -22,6 +22,7 @@ Plug 'easymotion/vim-easymotion'
 "Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-expand-region'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'valloric/youcompleteme'
 call plug#end()
 
 colorscheme nord
