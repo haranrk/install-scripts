@@ -6,7 +6,7 @@ function git_branch () {
 		echo ' ('$branch')'
 	fi
 }
-source /home/haranrk/miniconda3/etc/profile.d/conda.sh
+
 function preexec() {
   timer=${timer:-$SECONDS}
 }
