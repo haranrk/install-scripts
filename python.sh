@@ -1,4 +1,4 @@
-if [ $OSTYPE = "darwin" ]; then 
+if [ $OSTYPE = "darwin18" ]; then 
 echo "Detected macos"
 	curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 	bash Miniconda3-latest-MacOSX-x86_64.sh

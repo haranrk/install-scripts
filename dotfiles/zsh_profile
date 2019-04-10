@@ -16,5 +16,6 @@ PROMPT='%F{yellow}%2~%F{green}$(git_branch) %F{red}$ %F{reset}'
 alias ezsh="vi ~/.zshrc && source ~/.zshrc"
 alias ezp="vi ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
+alias dl="conda activate dl"
 #TODO 
 #tmux,  autojump, vscode
