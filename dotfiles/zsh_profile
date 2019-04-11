@@ -7,14 +7,26 @@ function git_branch () {
 	fi
 }
 
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+	if [ $timer ]; then
+	timer_show="$((($SECONDS - $timer)/3600))h $((($SECONDS - $timer)%3600/60))m $((($SECONDS - $timer)%60))s"
+	export RPROMPT="%F{yellow}${timer_show}%F{red}|%F{yellow}%D{%a %d.%m}%F{red}|%F{yellow}%T %{$reset_color%}"
+	unset timer
+fi
+}
 export BRANCH=$(git_branch)
 plugins=(git zsh-syntax-highlighting vi-mode osx z web-search tmux you-should-use) 
-#plugins+=(hacker-quoteszsh-autosuggestions )
+plugins+=(zsh-autosuggestions )
 source $ZSH/oh-my-zsh.sh
 
 PROMPT='%F{yellow}%2~%F{green}$(git_branch) %F{red}$ %F{reset}'
 alias ezsh="vi ~/.zshrc && source ~/.zshrc"
 alias ezp="vi ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
+alias dl="conda activate dl"
 #TODO 
 #tmux,  autojump, vscode
