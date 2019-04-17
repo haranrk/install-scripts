@@ -16,7 +16,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf' 
 Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 "Plug 'Raimondi/delimitMate'
