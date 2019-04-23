@@ -1,35 +1,31 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 syntax on
 filetype plugin indent on
+if !empty(glob("~/.vim/autoload/plug.vim"))
+    call plug#begin()
+    Plug 'tpope/vim-sensible'
+    Plug 'junegunn/limelight.vim'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'itchyny/lightline.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/fzf' 
+    Plug 'junegunn/fzf.vim'
+    Plug 'easymotion/vim-easymotion'
+    "Plug 'Raimondi/delimitMate'
+    Plug 'terryma/vim-expand-region'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'christoomey/vim-tmux-navigator'
+    "Plug 'valloric/youcompleteme'
+    call plug#end()
 
-call plug#begin()
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/limelight.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/fzf' 
-Plug 'junegunn/fzf.vim'
-Plug 'easymotion/vim-easymotion'
-"Plug 'Raimondi/delimitMate'
-Plug 'terryma/vim-expand-region'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'christoomey/vim-tmux-navigator'
-"Plug 'valloric/youcompleteme'
-call plug#end()
-
-colorscheme nord
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
+    if !empty(glob("~/.vim/plugged/nord-vim/colors/nord.vim"))
+        colorscheme nord
+        let g:lightline = {'colorscheme': 'nord'}
+    endif
+endif
 set cursorline 
 set number 
 filetype indent on

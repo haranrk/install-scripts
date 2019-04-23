@@ -1,0 +1,2 @@
+Load zsh plugins only if they exist
+Add installation of zsh plugins to master
