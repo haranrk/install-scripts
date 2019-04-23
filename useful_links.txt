@@ -3,3 +3,5 @@ https://medium.com/@briantorresgil/definitive-guide-to-python-on-mac-osx-65acd8d
 
 https://github.com/ipython-contrib/jupyter_contrib_nbextensions
 https://gorails.com/setup/ubuntu/16.04#git
+
+https://itsfoss.com/install-themes-ubuntu/
