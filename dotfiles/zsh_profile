@@ -28,5 +28,8 @@ alias ezsh="vi ~/.zshrc && source ~/.zshrc"
 alias ezp="vi ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
 alias dl="conda activate dl"
+setopt no_share_history
+unsetopt share_history
+
 #TODO 
 #tmux,  autojump, vscode
