@@ -18,6 +18,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
     Plug 'terryma/vim-expand-region'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'qpkorr/vim-renamer'
     "Plug 'valloric/youcompleteme'
     call plug#end()
 
