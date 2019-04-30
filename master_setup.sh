@@ -52,14 +52,14 @@
         echo "Detected macOS"
         #TODO
     fi
-    
+
     echo "Installing powerlevel9k"
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
 echo "1. Initial environment setup and core programs (git, vim, xclip, tmux)"
-echo "2. Install zsh and oh-my-zsh"
+echo "2. Install zsh, oh-my-zsh, nerd-font and powerlevel9k zsh theme"
 echo "3. Setup dotfiles"
 echo "4. Install python (conda)"
 echo "5. Install tmux plugins"
