@@ -38,6 +38,23 @@
 2_func () {
     echo "Installing zsh and oh-my-zsh"
     bash setups/setup_zsh.sh
+    
+    echo "Installing Roboto Mono Nerd font"
+    if [ $OSTYPE = "linux-gnu" ]; then
+        echo "Detected linux"
+        mkdir -p ~/.local/share/fonts
+        cd ~/.local/share/fonts 
+        curl -fLo "Roboto Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete%20Mono.ttf 
+        cd -
+        echo "Running fc-cache to recache fonts"
+        fc-cache -vf
+    elif [ $OSTYPE = "darwin18.0" ]; then
+        echo "Detected macOS"
+        #TODO
+    fi
+    
+    echo "Installing powerlevel9k"
+    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
