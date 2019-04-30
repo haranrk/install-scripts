@@ -7,3 +7,5 @@ https://gorails.com/setup/ubuntu/16.04#git
 https://itsfoss.com/install-themes-ubuntu/
 
 for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
+
+https://github.com/EliverLara/terminator-themes/blob/master/themes.md
