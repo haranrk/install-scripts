@@ -9,17 +9,19 @@ if [[ $SHELL =~ .*zsh ]]; then
     if [[ -z $(cat ~/.zshrc | grep "source ~/.zsh_profile") ]]; then
         echo "source ~/.zsh_profile" >> ~/.zshrc
     fi
-    echo "Hard-linked zsh_profile and configure zshrc to source it"
+    echo "Hard-linked zsh_profile and configured zshrc to source it"
     source ~/.zshrc
 fi
 
 if [ $OSTYPE = "linux-gnu" ]; then
     echo "Detected linux"
-    mkdir ~/.dir_colors/dircolors
-    ln -i  dotfiles/dircolors ~/.dir_colors/dircolors
+
+    mkdir -p ~/.dir_colors/dircolors
+    ln -f  dotfiles/dircolors ~/.dir_colors/dircolors
     echo "Hard-linked dircolors"
-    mkdir ~/.config/terminator
-    ln -i  dotfiles/terminator_config ~/.config/terminator/config
+    
+    mkdir -p ~/.config/terminator
+    ln -f  dotfiles/terminator_config ~/.config/terminator/config
     echo "Hard-linked terminator config"
 elif [ $OSTYPE = "darwin18.0" ]; then
     echo "Detected macOS"

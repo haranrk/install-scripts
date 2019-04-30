@@ -13,7 +13,7 @@
 
 3_func () {
     echo "Setting up dotfiles"
-    bash dotfile_setup.sh
+    zsh dotfile_setup.sh
 }
 
 4_func () {
@@ -45,9 +45,11 @@
         mkdir -p ~/.local/share/fonts
         cd ~/.local/share/fonts 
         curl -fLo "Roboto Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete%20Mono.ttf 
+        curl -fLo "Roboto Mono Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf
         cd -
         echo "Running fc-cache to recache fonts"
         fc-cache -vf
+
     elif [ $OSTYPE = "darwin18.0" ]; then
         echo "Detected macOS"
         #TODO
