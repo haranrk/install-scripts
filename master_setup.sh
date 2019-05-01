@@ -52,7 +52,7 @@
 
     elif [ $OSTYPE = "darwin18.0" ]; then
         echo "Detected macOS"
-        #TODO
+        brew cask install font-robotomono-nerd-font-mono font-robotomono-nerd-font
     fi
 
     echo "Installing powerlevel9k"
