@@ -1,27 +1,29 @@
 [global_config]
   borderless = True
-  geometry_hinting = False
   title_hide_sizetext = True
-  title_transmit_fg_color = "#ffffff"
-  title_transmit_bg_color = "#222222"
-  title_inactive_fg_color = "#ffffff"
   title_inactive_bg_color = "#666666"
-
-[profiles]
-  [[default]]
-    font = RobotoMono Nerd Font Mono 12 
-    show_titlebar = False
-    use_system_font = False
-    background_color = "#10111b"
-    cursor_color = "#aaaaaa"
-    palette = "#2e3436:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#d3d7cf:#555753:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#eeeeec"
-
+  title_inactive_fg_color = "#ffffff"
+  title_transmit_bg_color = "#222222"
+[keybindings]
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = default
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#10111b"
+    cursor_color = "#aaaaaa"
+    font = RobotoMono Nerd Font Mono 12
+    palette = "#2e3436:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#d3d7cf:#555753:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#eeeeec"
+    show_titlebar = False
+    use_system_font = False
+  [[new]]
+    cursor_color = "#aaaaaa"
+  [[new2]]
+    cursor_color = "#aaaaaa"
