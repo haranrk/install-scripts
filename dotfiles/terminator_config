@@ -17,13 +17,11 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#10111b"
+    background_color = "#282828"
+    copy_on_selection = True
     cursor_color = "#aaaaaa"
-    font = RobotoMono Nerd Font Mono 12
-    palette = "#2e3436:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#d3d7cf:#555753:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#eeeeec"
+    font = RobotoMono Nerd Font 12
+    foreground_color = "#ebdbb2"
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     show_titlebar = False
     use_system_font = False
-  [[new]]
-    cursor_color = "#aaaaaa"
-  [[new2]]
-    cursor_color = "#aaaaaa"
