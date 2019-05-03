@@ -33,10 +33,10 @@ setopt no_share_history
 unsetopt share_history
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-
+export TERM="xterm-256color"
 POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon anaconda root_indicator dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode command_execution_time status)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon anaconda root_indicator dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode command_execution_time)
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_HOME_ICON=''
@@ -46,7 +46,9 @@ POWERLEVEL9K_ETC_ICON=''
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=''
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=''
-dir_bg='013'
+POWERLEVEL9K_OS_ICON_FOREGROUND='006'
+
+dir_bg='006'
 dir_fg='black'
 POWERLEVEL9K_DIR_HOME_BACKGROUND=$dir_bg
 POWERLEVEL9K_DIR_HOME_FOREGROUND=$dir_fg
