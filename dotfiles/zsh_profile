@@ -1,18 +1,24 @@
-export BRANCH=$(git_branch)
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#---Zsh plugins------------------
 plugins=(git zsh-syntax-highlighting vi-mode osx z web-search tmux) 
 plugins+=(zsh-autosuggestions )
+#TODO 
+#tmux,  autojump, vscode
 
-PROMPT='%K{yellow}%F{000}%2~(git_branch)%F{reset}%K{reset}%F{yellow}'
+#---Aliases------------------
 alias ezsh="vi ~/.zshrc && source ~/.zshrc"
 alias ezp="vi ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
 alias dl="conda activate dl"
+
+#---General settings------------------
 setopt no_share_history
 unsetopt share_history
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export TERM="xterm-256color"
+
+#---Powerlevel9k settings-------------------
+ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon anaconda root_indicator dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode command_execution_time)
@@ -26,7 +32,6 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=''
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=''
 POWERLEVEL9K_OS_ICON_FOREGROUND='006'
-
 dir_bg='006'
 dir_fg='black'
 POWERLEVEL9K_DIR_HOME_BACKGROUND=$dir_bg
@@ -36,10 +41,9 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$dir_fg
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='yellow'
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
 
-#TODO 
-#tmux,  autojump, vscode
 source $ZSH/oh-my-zsh.sh
 
+#---Cursor changes based on modes-------------------
 # Activate vim mode.
 bindkey -v
 
@@ -66,5 +70,3 @@ _fix_cursor() {
 }
 
 precmd_functions+=(_fix_cursor)
-
-
