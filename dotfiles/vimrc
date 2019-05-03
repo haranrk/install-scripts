@@ -24,6 +24,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
     if !empty(glob("~/.vim/plugged/nord-vim/colors/nord.vim"))
         colorscheme nord
         let g:lightline = {'colorscheme': 'nord'}
+	highlight Visual cterm=reverse ctermbg=NONE
     endif
 endif
 
