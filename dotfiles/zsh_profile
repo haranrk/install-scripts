@@ -1,24 +1,3 @@
-function git_branch () {
-	branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
-	if [[ $branch == "" ]]; then
-	:
-	else
-		echo ' ('$branch')'
-	fi
-}
-
-function preexec() {
-  timer=${timer:-$SECONDS}
-}
-
-function precmd() {
-	if [ $timer ]; then
-	timer_show="$((($SECONDS - $timer)/3600))h $((($SECONDS - $timer)%3600/60))m $((($SECONDS - $timer)%60))s"
-#	export RPROMPT="%F{yellow}${timer_show}%F{red}|%F{yellow}%D{%a %d.%m}%F{red}|%F{yellow}%T %{$reset_color%}"
-	unset timer
-fi
-}
-
 export BRANCH=$(git_branch)
 ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(git zsh-syntax-highlighting vi-mode osx z web-search tmux) 
@@ -60,3 +39,32 @@ POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
 #TODO 
 #tmux,  autojump, vscode
 source $ZSH/oh-my-zsh.sh
+
+# Activate vim mode.
+bindkey -v
+
+# Remove mode switching delay.
+KEYTIMEOUT=5
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+      if [[ ${KEYMAP} == vicmd ]] ||
+         [[ $1 = 'block' ]]; then
+        echo -ne '\e[1 q'
+
+      elif [[ ${KEYMAP} == main ]] ||
+           [[ ${KEYMAP} == viins ]] ||
+           [[ ${KEYMAP} = '' ]] ||
+           [[ $1 = 'beam' ]]; then
+        echo -ne '\e[5 q'
+      fi
+}
+zle -N zle-keymap-select
+
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+
+precmd_functions+=(_fix_cursor)
+
+
