@@ -17,12 +17,48 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#282828"
-    copy_on_selection = True
-    cursor_color = "#aaaaaa"
-    cursor_shape = ibeam
     font = RobotoMono Nerd Font 12
+    use_system_font = False
+    show_titlebar = False
+    background_color = "#282828"
+    cursor_color = "#aaaaaa"
     foreground_color = "#ebdbb2"
     palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
-    show_titlebar = False
+  [[After Dark]]
+    font = RobotoMono Nerd Font 12
     use_system_font = False
+    show_titlebar = False
+    background_color = "#10111b"
+    cursor_color = "#aaaaaa"
+    palette = "#2e3436:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#d3d7cf:#555753:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#eeeeec"
+
+  [[Azu]]
+    font = RobotoMono Nerd Font 12
+    use_system_font = False
+    show_titlebar = False
+    background_color = "#09111a"
+    background_image = None
+    cursor_color = "#d2e8fc"
+    foreground_color = "#d9e6f2"
+    palette = "#000000:#ac6d74:#74ac6d:#aca46d:#6d74ac:#a46dac:#6daca4:#e6e6e6:#262626:#d6b8bc:#bcd6b8:#d6d3b8:#b8bcd6:#d3b8d6:#b8d6d3:#ffffff"
+  [[Blitz]]
+    font = RobotoMono Nerd Font 12
+    use_system_font = False
+    show_titlebar = False
+    background_color = "#16141e"
+    cursor_color = "#00ecc8" 
+    foreground_color = "#00ecc8"
+    palette = "#2e3436:#f70047:#00ff7d:#fcdd42:#26b3d2:#b055f4:#ff8db4:#d3d7cf:#555753:#ff5555:#55ff55:#ffff55:#729fcf:#ff55ff:#34e2e2:#eeeeec"
+  [[Brogrammer]]
+    font = RobotoMono Nerd Font 12
+    use_system_font = False
+    show_titlebar = False
+    palette = "#1f1f1f:#f81118:#2dc55e:#ecba0f:#2a84d2:#4e5ab7:#1081d6:#d6dbe5:#d6dbe5:#de352e:#1dd361:#f3bd09:#1081d6:#5350b9:#0f7ddb:#ffffff"
+    background_color = "#131313"
+    cursor_color = "#b9b9b9"
+    foreground_color = "#d6dbe5"
+    background_image = None
+
+ 
+
+
