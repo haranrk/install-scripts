@@ -21,7 +21,7 @@ fi
 
 export BRANCH=$(git_branch)
 ZSH_THEME="powerlevel9k/powerlevel9k"
-plugins=(git zsh-syntax-highlighting vi-mode osx z web-search tmux you-should-use) 
+plugins=(git zsh-syntax-highlighting vi-mode osx z web-search tmux) 
 plugins+=(zsh-autosuggestions )
 
 PROMPT='%K{yellow}%F{000}%2~(git_branch)%F{reset}%K{reset}%F{yellow}'

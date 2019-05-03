@@ -1,16 +1,15 @@
 ln -f dotfiles/tmux.conf ~/.tmux.conf
 echo "Hard-linked tmux.conf"
-tmux source-file ~/.tmux.conf
 ln -f dotfiles/vimrc ~/.vimrc
 echo "Hard-linked vimrc"
 
-if [[ $SHELL =~ .*zsh ]]; then
+if [[ -e ~/.zshrc ]]; then
     ln -f dotfiles/zsh_profile ~/.zsh_profile
     if [[ -z $(cat ~/.zshrc | grep "source ~/.zsh_profile") ]]; then
         echo "source ~/.zsh_profile" >> ~/.zshrc
     fi
     echo "Hard-linked zsh_profile and configured zshrc to source it"
-    source ~/.zshrc
+    echo "Restart the terminal for changes to take effect"
 fi
 
 if [ $OSTYPE = "linux-gnu" ]; then
