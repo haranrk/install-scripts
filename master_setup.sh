@@ -3,7 +3,9 @@
     echo "Installing git, vim, xclip and tmux"
     if [ $OSTYPE = "darwin" ]; then
         echo "Detected macOS"
-        #TODO
+        brew install git vim xclip tmux
+        brew cask install visual-studio-code iterm2
+
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
         sudo apt install git vim xclip tmux curl
