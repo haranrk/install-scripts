@@ -1,0 +1,5 @@
+https://medium.freecodecamp.org/learn-linux-vim-basic-features-19134461ab85
+http://www.oualline.com/vim/10/top_10.html
+
+Vim features
+marks, registers, buffers 
