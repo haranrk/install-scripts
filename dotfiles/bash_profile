@@ -4,5 +4,6 @@ else
 	ssh_status=""
 fi
 PS1='\[\033[01;32m\]${ssh_status}\D{%a %d.%m}\[\033[01;34m\]|\[\033[01;32m\]\A\[\033[01;34m\]|\[\033[01;32m\]${PWD#"${PWD%/*/*}/"}\[\033[00m\]\$ '
+alias dl="conda activate dl"
 				
 
