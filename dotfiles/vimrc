@@ -1,25 +1,16 @@
-syntax on
-filetype plugin indent on
+" Load plugins using vim-plug
 if !empty(glob("~/.vim/autoload/plug.vim"))
-    call plug#begin()
-    Plug 'tpope/vim-sensible'
-    Plug 'junegunn/limelight.vim'
-    Plug 'arcticicestudio/nord-vim'
-    Plug 'itchyny/lightline.vim'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-repeat'
-    Plug 'junegunn/goyo.vim'
-    Plug 'junegunn/fzf' 
-    Plug 'junegunn/fzf.vim'
-    Plug 'easymotion/vim-easymotion'
-    "Plug 'Raimondi/delimitMate'
-    Plug 'terryma/vim-expand-region'
-    Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'qpkorr/vim-renamer'
-    "Plug 'valloric/youcompleteme'
-    call plug#end()
+	call plug#begin()
+	    Plug 'christoomey/vim-tmux-navigator'
+	    Plug 'qpkorr/vim-renamer'
+	    Plug 'arcticicestudio/nord-vim'
+	    Plug 'itchyny/lightline.vim'
+	    Plug 'tpope/vim-fugitive'
+	    Plug 'tpope/vim-surround'
+	    Plug 'tpope/vim-repeat'
+	    Plug 'junegunn/fzf.vim'
+	    Plug 'easymotion/vim-easymotion'
+	call plug#end()
 
     if !empty(glob("~/.vim/plugged/nord-vim/colors/nord.vim"))
         colorscheme nord
@@ -28,14 +19,25 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
     endif
 endif
 
+"Lightline
+set laststatus=2
+
+"General
+filetype plugin indent on
+syntax on
 set cursorline 
 set number 
-filetype indent on
 set wildmenu
 set lazyredraw
 set showmatch
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
 "To persisit codefolds across sessions
 autocmd BufWinLeave *.* mkview
