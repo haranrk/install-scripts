@@ -23,8 +23,10 @@ set pastetoggle=<F2>
 
 "General
 filetype plugin indent on
-"highlight Visual cterm=reverse ctermbg=NONE
 syntax on
+set cindent
+
+"UI
 set cursorline 
 set background=dark
 set number 
@@ -33,12 +35,11 @@ set lazyredraw
 set showmatch
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
+
+"Tabs
+set tabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4 " when indenting with '>', use 4 spaces width
+set expandtab " On pressing tab, insert 4 spaces 
 
 "To persisit codefolds across sessions
 autocmd BufWinLeave *.* mkview
