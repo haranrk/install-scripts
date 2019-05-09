@@ -1,5 +1,5 @@
 if [ -n "$(echo $SSH_CONNECTION)" ]; then
-	ssh_status="(ssh) "
+	ssh_status="(ssh|$(hostname)) "
 else
 	ssh_status=""
 fi
