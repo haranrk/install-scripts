@@ -3,7 +3,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	call plug#begin()
 	    Plug 'christoomey/vim-tmux-navigator'
 	    Plug 'qpkorr/vim-renamer'
-	    Plug 'arcticicestudio/nord-vim'
+	    Plug 'morhetz/gruvbox'
 	    Plug 'itchyny/lightline.vim'
 	    Plug 'tpope/vim-fugitive'
 	    Plug 'tpope/vim-surround'
@@ -11,21 +11,22 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'junegunn/fzf.vim'
 	    Plug 'easymotion/vim-easymotion'
 	call plug#end()
-
-    if !empty(glob("~/.vim/plugged/nord-vim/colors/nord.vim"))
-        colorscheme nord
-        let g:lightline = {'colorscheme': 'nord'}
-	highlight Visual cterm=reverse ctermbg=NONE
-    endif
+	colorscheme gruvbox
+        let g:lightline = {'colorscheme': 'gruvbox'}
 endif
 
 "Lightline
 set laststatus=2
 
+"Keybindings
+set pastetoggle=<F2>
+
 "General
 filetype plugin indent on
+"highlight Visual cterm=reverse ctermbg=NONE
 syntax on
 set cursorline 
+set background=dark
 set number 
 set wildmenu
 set lazyredraw
