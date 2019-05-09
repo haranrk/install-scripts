@@ -1,5 +1,5 @@
 #---Zsh plugins------------------
-plugins=(git zsh-syntax-highlighting vi-mode osx z web-search tmux) 
+plugins+=(zsh-syntax-highlighting vi-mode osx z web-search tmux) 
 plugins+=(zsh-autosuggestions )
 #TODO 
 #tmux,  autojump, vscode
