@@ -37,9 +37,11 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
 "Tabs
-set tabstop=4 " show existing tab with 4 spaces width
-set shiftwidth=4 " when indenting with '>', use 4 spaces width
-set expandtab " On pressing tab, insert 4 spaces 
+set tabstop=8 
+set softtabstop=0 
+set expandtab 
+set shiftwidth=4 
+set smarttab
 
 "To persisit codefolds across sessions
 autocmd BufWinLeave *.* mkview
