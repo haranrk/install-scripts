@@ -4,12 +4,19 @@ ln -f dotfiles/vimrc ~/.vimrc
 echo "Hard-linked vimrc"
 
 if [[ -e ~/.zshrc ]]; then
-    ln -f dotfiles/zsh_profile ~/.zsh_profile
-    if [[ -z $(cat ~/.zshrc | grep "source ~/.zsh_profile") ]]; then
-        echo "source ~/.zsh_profile" >> ~/.zshrc
-    fi
-    echo "Hard-linked zsh_profile and configured zshrc to source it"
-    echo "Restart the terminal for changes to take effect"
+	    ln -f dotfiles/zsh_profile ~/.zsh_profile
+	    if [[ -z $(cat ~/.zshrc | grep "source ~/.zsh_profile") ]]; then
+		echo "source ~/.zsh_profile" >> ~/.zshrc
+	    fi
+	    echo "Hard-linked zsh_profile and configured zshrc to source it"
+	    echo "Restart the terminal for changes to take effect"
+    else
+	    ln -f dotfiles/bash_profile ~/.bash_profile
+	    if [[ -z $(cat ~/.bashrc | grep "source ~/.bash_profile") ]]; then
+		echo "source ~/.bash_profile" >> ~/.bashrc
+	    fi
+	    echo "Hard-linked bash_profile and configured bashrc to source it"
+	    echo "Restart the terminal for changes to take effect"
 fi
 
 if [ $OSTYPE = "linux-gnu" ]; then
