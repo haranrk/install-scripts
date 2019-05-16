@@ -10,6 +10,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'tpope/vim-repeat'
 	    Plug 'junegunn/fzf.vim'
 	    Plug 'easymotion/vim-easymotion'
+            Plug 'scrooloose/nerdcommenter'
 	call plug#end()
 	colorscheme gruvbox
         let g:lightline = {'colorscheme': 'gruvbox'}
@@ -20,11 +21,14 @@ set laststatus=2
 
 "Keybindings
 set pastetoggle=<F2>
+nmap <F3> :w<CR>
+vmap <F3> <Esc>:w<CR>gv
+imap <F3> <Esc>:w<CR>
 
 "General
 filetype plugin indent on
 syntax on
-set cindent
+autocmd CursorHold,CursorHoldI * update
 
 "UI
 set cursorline 
