@@ -29,9 +29,13 @@ if [ $OSTYPE = "linux-gnu" ]; then
     mkdir -p ~/.config/terminator
     ln -f  dotfiles/terminator_config ~/.config/terminator/config
     echo "Hard-linked terminator config"
-elif [ $OSTYPE = "darwin18.0" ]; then
+elif [ $(uname -s) = "Darwin" ]; then
     echo "Detected macOS"
-    ln -i dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
-    echo "Hard-linked alacritty config"
+    ln -f dotfiles/chunkwmrc ~/.chunkwmrc
+    ln -f dotfiles/chunkwmrc ~/.chunkwmrc
+    echo "Hard-linked chunkwmrc and skhdrc"
+else 
+    echo $OSTYPE
+    echo "OS not recognized"
 fi
 
