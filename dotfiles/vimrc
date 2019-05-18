@@ -10,7 +10,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'tpope/vim-repeat'
 	    Plug 'junegunn/fzf.vim'
 	    Plug 'easymotion/vim-easymotion'
-            Plug 'scrooloose/nerdcommenter'
+	    Plug 'scrooloose/nerdcommenter'
 	call plug#end()
 	colorscheme gruvbox
         let g:lightline = {'colorscheme': 'gruvbox'}
