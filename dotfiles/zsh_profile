@@ -9,6 +9,7 @@ alias ezsh="vi ~/.zshrc && source ~/.zshrc"
 alias ezp="vi ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
 alias dl="conda activate dl"
+alias vim="nvim"
 
 #---General settings------------------
 setopt no_share_history
@@ -20,7 +21,7 @@ export TERM="xterm-256color"
 #---Powerlevel9k settings-------------------
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(ssh os_icon user anaconda root_indicator dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(ssh os_icon user dir anaconda root_indicator vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=(command_execution_time)
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
