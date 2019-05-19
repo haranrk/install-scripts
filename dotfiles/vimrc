@@ -1,6 +1,7 @@
 " Load plugins using vim-plug
 if !empty(glob("~/.vim/autoload/plug.vim"))
 	call plug#begin()
+
 	    Plug 'christoomey/vim-tmux-navigator'
 	    Plug 'qpkorr/vim-renamer'
 	    Plug 'morhetz/gruvbox'
@@ -11,7 +12,26 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'junegunn/fzf.vim'
 	    Plug 'easymotion/vim-easymotion'
 	    Plug 'scrooloose/nerdcommenter'
+            Plug 'scrooloose/nerdtree'  " file list
+            if has('nvim')
+	      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	    else
+	      Plug 'Shougo/deoplete.nvim'
+	      Plug 'roxma/nvim-yarp'
+	      Plug 'roxma/vim-hug-neovim-rpc'
+	    endif
+	    Plug 'deoplete-plugins/deoplete-jedi'
+	    Plug 'wellle/tmux-complete.vim'
 	call plug#end()
+	let g:deoplete#enable_at_startup = 1
+        call deoplete#custom#option({
+        \ 'auto_complete_delay': 0,
+        \ 'smart_case': v:true,
+        \ })
+        "https://vi.stackexchange.com/questions/19675/cycle-through-autocomplete-menu-using-tab
+        inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+        inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
 	colorscheme gruvbox
         let g:lightline = {'colorscheme': 'gruvbox'}
 endif
@@ -28,7 +48,7 @@ imap <F3> <Esc>:w<CR>
 "General
 filetype plugin indent on
 syntax on
-autocmd CursorHold,CursorHoldI * update
+"autocmd CursorHold,CursorHoldI * update
 
 "UI
 set cursorline 
@@ -47,18 +67,8 @@ set expandtab
 set shiftwidth=4 
 set smarttab
 
-"To persisit codefolds across sessions
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"NerdTree 
+" toggle nerdtree on ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+map <C-t> :set nosplitright<CR>:TagbarToggle<CR>:set splitright<CR>
 
-"Change cursor type based on mode
-if has("autocmd")
-  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
-  au InsertEnter,InsertChange *
-    \ if v:insertmode == 'i' |
-    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
-    \ elseif v:insertmode == 'r' |
-    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
-    \ endif
-  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
-endif
