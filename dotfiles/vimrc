@@ -22,6 +22,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    endif
 	    Plug 'deoplete-plugins/deoplete-jedi'
 	    Plug 'wellle/tmux-complete.vim'
+            Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 	call plug#end()
 	let g:deoplete#enable_at_startup = 1
         call deoplete#custom#option({
