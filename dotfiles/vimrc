@@ -23,8 +23,13 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'deoplete-plugins/deoplete-jedi'
 	    Plug 'wellle/tmux-complete.vim'
             Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+            Plug 'wokalski/autocomplete-flow'
+            " For func argument completion
+            Plug 'Shougo/neosnippet'
+            Plug 'Shougo/neosnippet-snippets'
 	call plug#end()
 	let g:deoplete#enable_at_startup = 1
+        let g:neosnippet#enable_completed_snippet = 1
         call deoplete#custom#option({
         \ 'auto_complete_delay': 0,
         \ 'smart_case': v:true,
