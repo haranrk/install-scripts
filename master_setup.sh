@@ -3,12 +3,12 @@
     echo "Installing git, vim, xclip and tmux"
     if [ $OSTYPE = "darwin" ]; then
         echo "Detected macOS"
-        brew install git vim xclip tmux
+        brew install git neovim xclip tmux
         brew cask install visual-studio-code iterm2
 
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
-        sudo apt install git vim xclip tmux curl
+        sudo apt install git neovim xclip tmux curl
         bash setups/setup_git.sh
     fi
 
