@@ -6,8 +6,8 @@ plugins+=(colored-man-pages )
 #tmux,  autojump, vscode
 
 #---Aliases------------------
-alias ezsh="vi ~/.zshrc && source ~/.zshrc"
-alias ezp="vi ~/.zsh_profile && source ~/.zshrc"
+alias ezsh="vim ~/.zshrc && source ~/.zshrc"
+alias ezp="vim ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
 alias dl="conda activate dl"
 alias vim="nvim"
