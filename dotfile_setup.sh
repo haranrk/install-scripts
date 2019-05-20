@@ -2,7 +2,7 @@ ln -f dotfiles/tmux.conf ~/.tmux.conf
 echo "Hard-linked tmux.conf"
 ln -f dotfiles/vimrc ~/.vimrc
 echo "Hard-linked vimrc"
-ln -f dotfiles/neovim_config ~/.config/neovim/init.vim
+ln -f dotfiles/neovim_config ~/.config/nvim/init.vim
 echo "Hard-linked neovim config "
 
 if [[ -e ~/.zshrc ]]; then
@@ -21,7 +21,7 @@ if [[ -e ~/.zshrc ]]; then
 	    echo "Restart the terminal for changes to take effect"
 fi
 
-if [ $OSTYPE = "linux-gnu" ]; then
+if [ $(uname -s) = "Darwin" ]; then
     echo "Detected linux"
 
     mkdir -p ~/.dir_colors/dircolors
