@@ -23,6 +23,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'deoplete-plugins/deoplete-jedi'
 	    Plug 'wellle/tmux-complete.vim'
             Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+            Plug 'tpope/vim-speeddating'
 	call plug#end()
 	let g:deoplete#enable_at_startup = 1
         call deoplete#custom#option({
