@@ -21,7 +21,7 @@ if [[ -e ~/.zshrc ]]; then
 	    echo "Restart the terminal for changes to take effect"
 fi
 
-if [ $(uname -s) = "Darwin" ]; then
+if [ $(uname -s) = "Linux" ]; then
     echo "Detected linux"
 
     mkdir -p ~/.dir_colors/dircolors
