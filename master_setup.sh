@@ -1,6 +1,6 @@
 #! /bin/bash
 1_func () {
-    echo "Installing git, vim, xclip and tmux"
+    echo "Installing git, neovim, xclip and tmux"
     if [ $OSTYPE = "darwin" ]; then
         echo "Detected macOS"
         brew install git neovim xclip tmux
@@ -8,7 +8,11 @@
 
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
-        sudo apt install git neovim xclip tmux curl
+        sudo apt -yq install git xclip tmux curl
+        sudo apt-get install software-properties-common
+        sudo add-apt-repository ppa:neovim-ppa/stable
+        sudo apt-get update
+        sudo apt -yq install neovim
         bash setups/setup_git.sh
     fi
 
@@ -63,7 +67,7 @@
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
-echo "1. Initial environment setup and core programs (git, vim, xclip, tmux, nerd-font)"
+echo "1. Initial environment setup and core programs (git, neovim, xclip, tmux, nerd-font)"
 echo "2. Install zsh, oh-my-zsh, nerd-font and powerlevel9k zsh theme"
 echo "3. Setup dotfiles"
 echo "4. Install python (conda)"

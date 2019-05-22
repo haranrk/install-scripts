@@ -2,6 +2,7 @@ ln -f dotfiles/tmux.conf ~/.tmux.conf
 echo "Hard-linked tmux.conf"
 ln -f dotfiles/vimrc ~/.vimrc
 echo "Hard-linked vimrc"
+mkdir -p ~/.config/nvim
 ln -f dotfiles/neovim_config ~/.config/nvim/init.vim
 echo "Hard-linked neovim config "
 
