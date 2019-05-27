@@ -63,7 +63,7 @@
     bash setups/setup_zsh.sh
     
     echo "Installing powerlevel10k"
-    git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+    git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
