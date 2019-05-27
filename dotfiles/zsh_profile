@@ -20,11 +20,12 @@ export LC_CTYPE=en_US.UTF-8
 export TERM="xterm-256color"
 
 #---Powerlevel9k settings-------------------
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="spaceship"
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=false
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon user dir anaconda root_indicator vcs newline )
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon user dir anaconda root_indicator newline vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
 
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true

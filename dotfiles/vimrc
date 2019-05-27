@@ -48,9 +48,10 @@ set laststatus=2
 
 "Keybindings
 set pastetoggle=<F2>
-nmap <F3> :w<CR>
-vmap <F3> <Esc>:w<CR>gv
-imap <F3> <Esc>:w<CR>
+nnoremap ,<space> :nohl<CR>
+noremap <C-S> :w<CR>
+nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabnext<CR>
 
 "General
 filetype plugin indent on
@@ -74,8 +75,4 @@ set expandtab
 set shiftwidth=4 
 set smarttab
 
-"NerdTree 
-" toggle nerdtree on ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-map <C-t> :set nosplitright<CR>:TagbarToggle<CR>:set splitright<CR>
 

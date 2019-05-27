@@ -62,8 +62,8 @@
     echo "Installing zsh and oh-my-zsh"
     bash setups/setup_zsh.sh
     
-    echo "Installing powerlevel9k"
-    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    echo "Installing powerlevel10k"
+    git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
