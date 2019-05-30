@@ -50,8 +50,8 @@ set laststatus=2
 set pastetoggle=<F2>
 nnoremap ,<space> :nohl<CR>
 noremap <C-S> :w<CR>
-nnoremap <Tab> :tabnext<CR>
-nnoremap <S-Tab> :tabnext<CR>
+noremap <Tab> :tabnext<CR>
+noremap <S-Tab> :tabprevious<CR>
 
 "General
 filetype plugin indent on
