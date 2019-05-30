@@ -3,7 +3,7 @@ plugins+=(git zsh-syntax-highlighting vi-mode osx z web-search tmux)
 plugins+=(zsh-autosuggestions )
 plugins+=(colored-man-pages )
 #TODO 
-#tmux,  autojump, vscode
+#tmux,  vscode
 
 #---Aliases------------------
 alias ezsh="vim ~/.zshrc && source ~/.zshrc"
@@ -23,23 +23,31 @@ export TERM="xterm-256color"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="spaceship"
 POWERLEVEL9K_MODE='nerdfont-complete'
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=false
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon user dir anaconda root_indicator newline vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
+
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON=''
 POWERLEVEL9K_FOLDER_ICON=''
 POWERLEVEL9K_ETC_ICON=''
+
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=''
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=''
-POWERLEVEL9K_OS_ICON_FOREGROUND='black'
-POWERLEVEL9K_OS_ICON_BACKGROUND='006'
-POWERLEVEL9K_USER_DEFAULT_FOREGROUND='006'
-POWERLEVEL9K_USER_DEFAULT_BACKGROUND='black'
+
 dir_fg='black'
 dir_bg='006'
+POWERLEVEL9K_OS_ICON_FOREGROUND=$dir_fg
+POWERLEVEL9K_OS_ICON_BACKGROUND=$dir_bg
+POWERLEVEL9K_USER_DEFAULT_FOREGROUND=$dir_bg
+POWERLEVEL9K_USER_DEFAULT_BACKGROUND=$dir_fg
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=$dir_bg
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=$dir_fg
 POWERLEVEL9K_DIR_HOME_BACKGROUND=$dir_bg
 POWERLEVEL9K_DIR_HOME_FOREGROUND=$dir_fg
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=$dir_bg
@@ -48,7 +56,6 @@ POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='yellow'
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='006'
 
 source $ZSH/oh-my-zsh.sh
-
 #---Cursor changes based on modes-------------------
 # Activate vim mode.
 bindkey -v
