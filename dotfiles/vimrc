@@ -56,6 +56,10 @@ noremap <S-Tab> :tabprevious<CR>
 "General
 filetype plugin indent on
 syntax on
+set foldcolumn=1
+"Saves codefolds on exit
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview 
 "autocmd CursorHold,CursorHoldI * update
 
 "UI
