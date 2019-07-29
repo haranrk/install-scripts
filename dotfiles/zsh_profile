@@ -11,6 +11,8 @@ alias ezp="vim ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
 alias dl="conda activate dl"
 alias vim="nvim"
+alias duh="du -hs"
+alias duhls='du -hs $(ls)'
 
 #---General settings------------------
 setopt no_share_history
