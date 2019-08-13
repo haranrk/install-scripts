@@ -68,7 +68,7 @@
 
 echo "Choose components to be installed by comma-separating serial numbers:"
 echo "1. Initial environment setup and core programs (git, neovim, xclip, tmux, nerd-font)"
-echo "2. Install zsh, oh-my-zsh, nerd-font and powerlevel9k zsh theme"
+echo "2. Install zsh, oh-my-zsh, nerd-font and powerlevel10k zsh theme"
 echo "3. Setup dotfiles"
 echo "4. Install python (conda)"
 echo "5. Install tmux plugins"
