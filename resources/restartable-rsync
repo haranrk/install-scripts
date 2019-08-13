@@ -3,7 +3,7 @@
 
 while [ 1 ]
 do
-    rsync -avz --partial source dest
+    rsync -avz --partial $1 $2
     if [ "$?" = "0" ] ; then
         echo "rsync completed normally"
         exit

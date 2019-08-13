@@ -1,6 +1,6 @@
 ln -f dotfiles/tmux.conf ~/.tmux.conf
 echo "Hard-linked tmux.conf"
-ln -f dotfiles/vimrc ~/.vimrc
+ln -f dotfiles/vimrc ~/.vimrc_haran
 echo "Hard-linked vimrc"
 mkdir -p ~/.config/nvim
 ln -f dotfiles/neovim_config ~/.config/nvim/init.vim
@@ -14,9 +14,9 @@ if [[ -e ~/.zshrc ]]; then
 	    echo "Hard-linked zsh_profile and configured zshrc to source it"
 	    echo "Restart the terminal for changes to take effect"
     else
-	    ln -f dotfiles/bash_profile ~/.bash_profile
-	    if [[ -z $(cat ~/.bashrc | grep "source ~/.bash_profile") ]]; then
-		echo "source ~/.bash_profile" >> ~/.bashrc
+	    ln -f dotfiles/bash_profile ~/.bsh_prof
+	    if [[ -z $(cat ~/.bashrc | grep "source ~/.bsh_prof") ]]; then
+		echo "source ~/.bsh_prof" >> ~/.bashrc
 	    fi
 	    echo "Hard-linked bash_profile and configured bashrc to source it"
 	    echo "Restart the terminal for changes to take effect"
