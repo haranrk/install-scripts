@@ -16,21 +16,6 @@
         bash setups/setup_git.sh
     fi
 
-    echo "Installing Roboto Mono Nerd font"
-    if [ $OSTYPE = "linux-gnu" ]; then
-        echo "Detected linux"
-        mkdir -p ~/.local/share/fonts
-        cd ~/.local/share/fonts 
-        curl -fLo "Roboto Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete%20Mono.ttf 
-        curl -fLo "Roboto Mono Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf
-        cd -
-        echo "Running fc-cache to recache fonts"
-        fc-cache -vf
-
-    elif [ $OSTYPE = "darwin18.0" ]; then
-        echo "Detected macOS"
-        brew cask install font-robotomono-nerd-font-mono font-robotomono-nerd-font
-    fi
 
 }
 
@@ -62,12 +47,28 @@
     echo "Installing zsh and oh-my-zsh"
     bash setups/setup_zsh.sh
     
+    echo "Installing Roboto Mono Nerd font"
+    if [ $OSTYPE = "linux-gnu" ]; then
+        echo "Detected linux"
+        mkdir -p ~/.local/share/fonts
+        cd ~/.local/share/fonts 
+        curl -fLo "Roboto Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete%20Mono.ttf 
+        curl -fLo "Roboto Mono Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf
+        cd -
+        echo "Running fc-cache to recache fonts"
+        fc-cache -vf
+
+    elif [ $OSTYPE = "darwin18.0" ]; then
+        echo "Detected macOS"
+        brew cask install font-robotomono-nerd-font-mono font-robotomono-nerd-font
+    fi
+
     echo "Installing powerlevel10k"
     git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
-echo "1. Initial environment setup and core programs (git, neovim, xclip, tmux, nerd-font)"
+echo "1. Initial environment setup and core programs (git, neovim, xclip, tmux)"
 echo "2. Install zsh, oh-my-zsh, nerd-font and powerlevel10k zsh theme"
 echo "3. Setup dotfiles"
 echo "4. Install python (conda)"
