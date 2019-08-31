@@ -24,19 +24,18 @@ fi
 
 if [ $(uname -s) = "Linux" ]; then
     echo "Detected linux"
-
-    mkdir -p ~/.dir_colors/dircolors
-    ln -f  dotfiles/dircolors ~/.dir_colors/dircolors
-    echo "Hard-linked dircolors"
+    #mkdir -p ~/.dir_colors/dircolors
+    #ln -f  dotfiles/dircolors ~/.dir_colors/dircolors
+    #echo "Hard-linked dircolors"
     
-    mkdir -p ~/.config/terminator
-    ln -f  dotfiles/terminator_config ~/.config/terminator/config
-    echo "Hard-linked terminator config"
+    #mkdir -p ~/.config/terminator
+    #ln -f  dotfiles/terminator_config ~/.config/terminator/config
+    #echo "Hard-linked terminator config"
 elif [ $(uname -s) = "Darwin" ]; then
     echo "Detected macOS"
-    ln -f dotfiles/chunkwmrc ~/.chunkwmrc
-    ln -f dotfiles/chunkwmrc ~/.chunkwmrc
-    echo "Hard-linked chunkwmrc and skhdrc"
+    #ln -f dotfiles/chunkwmrc ~/.chunkwmrc
+    #ln -f dotfiles/chunkwmrc ~/.chunkwmrc
+    #echo "Hard-linked chunkwmrc and skhdrc"
 else 
     echo $OSTYPE
     echo "OS not recognized"
