@@ -9,4 +9,4 @@ bash master_setup.sh
 Upon running the above script, you will be presented with an interactive menu to choose the subsections of software that you want to install.
 
 ## Dotfile setup
-This script force hard-links all the dotfiles from present in the dotfile directory, to their appropriate locations in the unix system.
+This script force hard-links all the dotfiles present in the `dotfile` directory to their appropriate locations in the system.
