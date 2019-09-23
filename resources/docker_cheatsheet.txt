@@ -1,0 +1,3 @@
+#Docker >19.03
+sudo docker run -it  -v abspath_host:abspath_container --ipc=host --gpus '"device=1"' image_name:tag CMD
+sudo docker build -f Dockerfile -t image_name:tag .

@@ -1,0 +1,7 @@
+FROM nvidia/cuda:9.0-devel
+RUN /bin/bash -c 'apt update; apt install -y curl'
+RUN /bin/bash -c 'curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh'
+RUN /bin/bash -c 'bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda'
+ENV PATH "/miniconda/bin:$PATH"
+#ADD host_path docker_path
+
