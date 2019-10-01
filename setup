@@ -21,7 +21,7 @@
 
 3_func () {
     echo "Setting up dotfiles"
-    zsh dotfile_setup.sh
+    setup_dotfiles
 }
 
 4_func () {

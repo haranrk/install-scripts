@@ -1,3 +1,4 @@
+#! /bin/bash
 ln -f dotfiles/tmux.conf ~/.tmux.conf
 echo "Hard-linked tmux.conf"
 ln -f dotfiles/vimrc ~/.vimrc_haran
