@@ -7,31 +7,32 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'tpope/vim-fugitive'
 	    Plug 'tpope/vim-surround'
 	    Plug 'tpope/vim-repeat'
+            Plug 'tpope/vim-speeddating'
 	    "Plug 'junegunn/fzf.vim'
 	    Plug 'easymotion/vim-easymotion'
 	    Plug 'scrooloose/nerdcommenter'
             Plug 'scrooloose/nerdtree'  " file list
-	    Plug 'wellle/tmux-complete.vim'
-            Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-            Plug 'wokalski/autocomplete-flow'
+            Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} "Python syntax highlighter
             " For func argument completion
             Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	    Plug 'deoplete-plugins/deoplete-jedi'
-	    "Plug 'deoplete-plugins/deoplete-dictionary'
+            Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+            Plug 'deoplete-plugins/deoplete-jedi'
+	    Plug 'wellle/tmux-complete.vim'
             Plug 'ujihisa/neco-look'
             Plug 'Shougo/neosnippet'
             Plug 'Shougo/neosnippet-snippets'
-            Plug 'tpope/vim-speeddating'
             Plug 'vimwiki/vimwiki'
             Plug 'rhysd/vim-grammarous'
             " UI
-	    Plug 'morhetz/gruvbox'
 	    Plug 'itchyny/lightline.vim'
             Plug 'junegunn/goyo.vim'
             Plug 'junegunn/limelight.vim'
             Plug 'junegunn/seoul256.vim'
+            Plug 'mhinz/vim-startify'
 
 	call plug#end()
+
+        let g:pymode_python = 'python3'
 
 	let g:deoplete#enable_at_startup = 1
         let g:neosnippet#enable_completed_snippet = 1
@@ -53,10 +54,11 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         let g:seoul256_background = 233
         colo seoul256
         let g:lightline = {'colorscheme': 'seoul256'}
-endif
 
-"Lightline
-set laststatus=2
+        "Lightline
+        set laststatus=2
+
+endif
 
 "Keybindings
 set pastetoggle=<F2>
@@ -64,9 +66,11 @@ nnoremap ,<space> :nohl<CR>
 noremap <C-S> :w<CR>
 noremap <Tab> :tabnext<CR>
 noremap <S-Tab> :tabprevious<CR>
+"System clipboard
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 
 "General
-set spell
 filetype plugin indent on
 syntax on
 set foldcolumn=1
@@ -84,6 +88,8 @@ set lazyredraw
 set showmatch
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+set splitbelow
+set splitright
 
 "Tabs
 set tabstop=8 
@@ -91,3 +97,5 @@ set softtabstop=0
 set expandtab 
 set shiftwidth=4 
 set smarttab
+
+autocmd FileType markdown set spell

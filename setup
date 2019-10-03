@@ -1,6 +1,6 @@
 #! /bin/bash
 1_func () {
-    echo "Installing git, neovim, xclip and tmux"
+    echo "Installing git, neovim, xclip and tmux 2.9a"
     if [ $OSTYPE = "darwin" ]; then
         echo "Detected macOS"
         brew install git neovim xclip tmux
@@ -8,16 +8,16 @@
 
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
-        sudo apt -yq install git xclip tmux curl
+        sudo apt -yq install git xclip curl
         sudo apt-get install software-properties-common
         sudo add-apt-repository ppa:neovim-ppa/stable
         sudo apt-get update
         sudo apt -yq install neovim
+        bash setups/setup_latest_tmux.sh
         bash setups/setup_git.sh
     fi
-
-
 }
+
 
 3_func () {
     echo "Setting up dotfiles"
@@ -38,8 +38,7 @@
 
 6_func () {
     echo "Installing vim plugins"
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qall
 }
 
@@ -66,7 +65,7 @@
 
 echo "Choose components to be installed by comma-separating serial numbers:"
 echo "1. Initial environment setup and core programs (git, neovim, xclip, tmux)"
-echo "2. Install zsh, zplugin, nerd-font and powerlevel10k zsh theme"
+echo "2. Install zsh, zplugin and nerd-font"
 echo "3. Setup dotfiles"
 echo "4. Install python (conda)"
 echo "5. Install tmux plugins"
