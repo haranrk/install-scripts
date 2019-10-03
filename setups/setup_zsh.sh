@@ -6,4 +6,4 @@ elif [ $OSTYPE = "linux-gnu" ]; then
 	echo "Detected linux"
 	sudo apt install zsh
 fi
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"

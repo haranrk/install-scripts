@@ -62,14 +62,11 @@
         echo "Detected macOS"
         brew cask install font-robotomono-nerd-font-mono font-robotomono-nerd-font
     fi
-
-    echo "Installing powerlevel10k"
-    git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
 echo "1. Initial environment setup and core programs (git, neovim, xclip, tmux)"
-echo "2. Install zsh, oh-my-zsh, nerd-font and powerlevel10k zsh theme"
+echo "2. Install zsh, zplugin, nerd-font and powerlevel10k zsh theme"
 echo "3. Setup dotfiles"
 echo "4. Install python (conda)"
 echo "5. Install tmux plugins"
