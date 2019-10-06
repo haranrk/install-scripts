@@ -1,23 +1,13 @@
 #---Zsh plugins------------------
-zplugin light chrissicool/zsh-256color
-zplugin ice wait atload'_zsh_autosuggest_start'
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light Valiev/almostontop
+plugins+=(git vi-mode osx z web-search tmux colored-man-pages) 
+plugins+=(almostontop fast-syntax-highlighting zsh-autosuggestions )
+plugins+=(conda-zsh-completion)
+zstyle ':completion::complete:*' use-cache 1
 
-zplugin snippet OMZ::plugins/git/git.plugin.zsh
-zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
-zplugin ice svn
-zplugin snippet OMZ::plugins/z
-zplugin snippet OMZ::plugins/osx/osx.plugin.zsh
-zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
-
-#Prompt themes
-#zplugin ice pick"async.zsh" src"pure.zsh"
-#zplugin light sindresorhus/pure
-#zplugin light romkatv/powerlevel10k
-zplugin light dracula/zsh
-
+ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="spaceship"
+source $ZSH/oh-my-zsh.sh
 #---Aliases------------------
 alias ezsh="vim ~/.zshrc && source ~/.zshrc"
 alias ezp="vim ~/.zsh_profile && source ~/.zshrc"
@@ -32,7 +22,19 @@ setopt no_share_history
 unsetopt share_history
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+export TERM="xterm-256color"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+COMPLETION_WAITING_DOTS="true"
+export EDITOR="nvim"
 
+#---Custom functions------------------
+#Usage - bundle '<git-user>/<repo>'
+omz_bundle() {
+	IFS="/"
+	read -ra STR <<< "$1" 
+	IFS=" "
+	git clone https://github.com/${STR[0]}/${STR[1]} ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/${STR[1]}
+}
 #---Powerlevel9k settings-------------------
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -67,7 +69,6 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$dir_fg
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='yellow'
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='006'
 
-#source $ZSH/oh-my-zsh.sh
 #---Cursor changes based on modes-------------------
 # Activate vim mode.
 bindkey -v

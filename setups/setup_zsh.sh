@@ -7,3 +7,5 @@ elif [ $OSTYPE = "linux-gnu" ]; then
 	sudo apt install zsh
 fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+bash zsh_plugin_install.sh
+
