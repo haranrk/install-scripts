@@ -1,3 +1,4 @@
+#These functions load conda whenever their run. Therefore, by defualt only the system python would be active
 function activate_conda {
         export PATH="~/miniconda/bin:$PATH"
         . ~/miniconda/etc/profile.d/conda.sh
