@@ -1,0 +1,5 @@
+#Splits the image into 5 equal parts and stores them as individual images prefixed by <output>
+convert input.png -crop 100%x20% output.jpg 
+
+#Resizes the image by 50% and splits the image int 4 parts
+convert input.png -resize 50% -crop 100%x25% output.jpg
