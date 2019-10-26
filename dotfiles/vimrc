@@ -30,9 +30,13 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
             Plug 'junegunn/seoul256.vim'
             Plug 'mhinz/vim-startify'
 
+            Plug 'alvan/vim-closetag'
+            Plug 'mattn/emmet-vim'
+
 	call plug#end()
 
-        let g:pymode_python = 'python3'
+        let g:user_emmet_leader_key=','
+        let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 	let g:deoplete#enable_at_startup = 1
         let g:neosnippet#enable_completed_snippet = 1
