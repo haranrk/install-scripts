@@ -92,6 +92,7 @@ noremap <S-Tab> :tabprevious<CR>
 "System clipboard
 noremap <Leader>y "+y
 noremap <Leader>p "+p
+nnoremap <space> za
 
 "General
 filetype plugin indent on
