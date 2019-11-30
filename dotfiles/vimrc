@@ -50,19 +50,38 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         nmap <C-P> <Plug>(grammarous-move-to-previous-error)
         nmap <C-I> <Plug>(grammarous-open-info-window)
 
-        "https://vi.stackexchange.com/questions/19675/cycle-through-autocomplete-menu-using-tab
-        inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-        inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 	colorscheme seoul256
         let g:seoul256_background = 233
         colo seoul256
         let g:lightline = {'colorscheme': 'seoul256'}
 
-        "Lightline
+        "Limelight
+        autocmd! User GoyoEnter Limelight
+        autocmd! User GoyoLeave Limelight!
+
+        "WordCount
+        let g:lightline = {
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ], [ 'percent', 'wordcount' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'wordcount': 'WordCount',
+      \ },
+      \ }
         set laststatus=2
 
+
 endif
+
+"VimWiki
+let g:vimwiki_table_mappings=0
+let g:vimwiki_global_ext=0
+let g:vimwiki_list = [{'path': '~/google-drive/vimwiki', 'path_html': '~/google-drive/vimwiki/rendered_html'}]
+
+"https://vi.stackexchange.com/questions/19675/cycle-through-autocomplete-menu-using-tab
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 "Keybindings
 set pastetoggle=<F2>
@@ -103,3 +122,33 @@ set shiftwidth=4
 set smarttab
 
 autocmd FileType markdown set spell
+
+function! WordCount()
+    let currentmode = mode()
+    if !exists("g:lastmode_wc")
+    let g:lastmode_wc = currentmode
+    endif
+        " if we modify file, open a new buffer, be in visual ever, or switch modes
+        " since last run, we recompute.
+    if &modified || !exists("b:wordcount") || currentmode =~? '\c.*v' || currentmode != g:lastmode_wc
+    let g:lastmode_wc = currentmode
+    let l:old_position = getpos('.')
+    let l:old_status = v:statusmsg
+    execute "silent normal g\<c-g>"
+    if v:statusmsg == "--No lines in buffer--"
+    let b:wordcount = 0
+    else
+    let s:split_wc = split(v:statusmsg)
+    if index(s:split_wc, "Selected") < 0
+    let b:wordcount = str2nr(s:split_wc[11])
+    else
+    let b:wordcount = str2nr(s:split_wc[5])
+    endif
+    let v:statusmsg = l:old_status
+    endif
+    call setpos('.', l:old_position)
+    return b:wordcount
+    else
+    return b:wordcount
+    endif
+endfunction
