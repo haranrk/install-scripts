@@ -1,12 +1,9 @@
 #---Zsh plugins------------------
-plugins+=(git vi-mode osx z web-search tmux colored-man-pages) 
-plugins+=(almostontop fast-syntax-highlighting zsh-autosuggestions )
-plugins+=(conda-zsh-completion)
-zstyle ':completion::complete:*' use-cache 1
+plugins+=(git vi-mode osx z web-search tmux colored-man-pages catimg) 
+plugins+=(almostontop fast-syntax-highlighting zsh-autosuggestions zsh-interactive-cd )
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="spaceship"
+#ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 #---Aliases------------------
 alias ezsh="vim ~/.zshrc && source ~/.zshrc"
@@ -28,8 +25,8 @@ COMPLETION_WAITING_DOTS="true"
 export EDITOR="nvim"
 
 #---Custom functions------------------
-#Usage - bundle '<git-user>/<repo>'
-omz_bundle() {
+#bundle '<git-user>/<repo>'
+zsh_bundle() {
 	IFS="/"
 	read -ra STR <<< "$1" 
 	IFS=" "
