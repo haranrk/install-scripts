@@ -14,7 +14,7 @@ if [[ -e ~/.zshrc ]]; then
 	    fi
 	    echo "Hard-linked zsh_profile and configured zshrc to source it"
 	    echo "Restart the terminal for changes to take effect"
-    else
+else
 	    ln -f dotfiles/bash_profile ~/.bsh_prof
 	    if [[ -z $(cat ~/.bashrc | grep "source ~/.bsh_prof") ]]; then
 		echo "source ~/.bsh_prof" >> ~/.bashrc
