@@ -3,3 +3,7 @@ convert input.png -crop 100%x20% output.jpg
 
 #Resizes the image by 50% and splits the image int 4 parts
 convert input.png -resize 50% -crop 100%x25% output.jpg
+
+#Convert mp4  to gif
+ffmpeg -ss 30 -t 3 -i input.mp4 -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+
