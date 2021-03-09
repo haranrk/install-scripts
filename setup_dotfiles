@@ -34,6 +34,7 @@ if [ $(uname -s) = "Linux" ]; then
     #echo "Hard-linked terminator config"
 elif [ $(uname -s) = "Darwin" ]; then
     echo "Detected macOS"
+    cp dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences
     #ln -f dotfiles/chunkwmrc ~/.chunkwmrc
     #ln -f dotfiles/chunkwmrc ~/.chunkwmrc
     #echo "Hard-linked chunkwmrc and skhdrc"
