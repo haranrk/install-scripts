@@ -1,10 +1,12 @@
 #! /bin/bash
 1_func () {
-    echo "Installing git, neovim, xclip and tmux 2.9a"
-    if [ $OSTYPE = "darwin" ]; then
+    echo "Installing git, neovim, xclip and tmux"
+    if [[ $OSTYPE == "darwin"* ]]; then
         echo "Detected macOS"
         brew install git neovim xclip tmux
-        brew cask install visual-studio-code iterm2
+        brew install --cask visual-studio-code iterm2
+	bash setups/setup_git.sh
+
 
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
@@ -14,14 +16,14 @@
         sudo apt-get update
         sudo apt -yq install neovim
         bash setups/setup_latest_tmux.sh
-        bash setups/setup_git.sh
     fi
+    bash setups/setup_git.sh
 }
 
 
 3_func () {
     echo "Setting up dotfiles"
-    setup_dotfiles
+    ./setup_dotfiles
 }
 
 4_func () {
@@ -31,8 +33,9 @@
 5_func () {
     echo "Installing tmux plugins"
     if [ ! -d ~/.tmux/plugins/tpm ]; then 
-    echo Cloning tmux plugin manager repository
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        echo Cloning tmux plugin manager repository
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        echo "Installed tmux plugins"
     fi
 }
 
@@ -57,9 +60,11 @@
         echo "Running fc-cache to recache fonts"
         fc-cache -vf
 
-    elif [ $OSTYPE = "darwin18.0" ]; then
+    elif [[ $OSTYPE == "darwin"* ]]; then
         echo "Detected macOS"
-        brew cask install font-robotomono-nerd-font-mono font-robotomono-nerd-font
+        brew tap homebrew/cask-fonts
+        brew install --cask font-roboto-mono-nerd-font
+
     fi
 }
 
