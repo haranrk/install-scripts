@@ -1,13 +1,4 @@
-#---Zsh plugins------------------
-#zplugin light chrissicool/zsh-256color
-##zplugin ice wait atload'_zsh_autosuggest_start'
-#zplugin light zsh-users/zsh-autosuggestions
-#zplugin light zdharma/fast-syntax-highlighting
-#zplugin light Valiev/almostontop
-##zplugin ice pick"async.zsh" src"pure.zsh"
-##zplugin light sindresorhus/pure
-#zplugin light romkatv/powerlevel10k
-#zplugin light dracula/zsh
+#---Zsh plugins/settings------------------
 plugins+=(git vi-mode osx z web-search tmux colored-man-pages catimg) 
 plugins+=(almostontop fast-syntax-highlighting zsh-autosuggestions zsh-interactive-cd )
 #TODO 
@@ -15,7 +6,6 @@ plugins+=(almostontop fast-syntax-highlighting zsh-autosuggestions zsh-interacti
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 #---Aliases------------------
 alias ezsh="vim ~/.zshrc && source ~/.zshrc"
