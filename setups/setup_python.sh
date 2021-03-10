@@ -1,17 +1,22 @@
 if [[ $OSTYPE = "darwin"* ]]; then 
 echo "Detected macos"
-        curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-	bash Miniconda3-latest-MacOSX-x86_64.sh -b -p ${HOME}/miniconda
+	curl -o miniconda-installer.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 elif [ $OSTYPE = "linux-gnu" ]; then
 	echo "Detected linux"
-	curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-	bash Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/miniconda
+	curl -o miniconda-installer.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 fi
-rm Miniconda3-latest-Linux-x86_64.sh
+bash miniconda-installer.sh -b -p ${HOME}/miniconda
+rm miniconda-installer.sh
+echo "Conda installed"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 cat ${DIR}/assets/condaondemand.sh >> ~/.bashrc
 if [[ -e ~/.zshrc ]]; then
     cat ${DIR}/assets/condaondemand.sh >> ~/.zshrc
 fi
+
+source ~/.zshrc
+activate_conda
+conda create -y --name dl
 echo "Conda has been installed. It is disabled by default. To activate it in a terminal session, type "dl". You can configure this in the bashrc or zshrc file."
