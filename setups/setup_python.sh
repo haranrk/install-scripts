@@ -18,5 +18,5 @@ fi
 
 source ${DIR}/assets/condaondemand.sh
 activate_conda
-conda create -y --name dl
+conda create -y --name dl python=3
 echo "Conda has been installed. It is disabled by default. To activate it in a terminal session, type 'dl'. You can configure this in the bashrc or zshrc file."
