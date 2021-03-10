@@ -16,7 +16,7 @@ if [[ -e ~/.zshrc ]]; then
     cat ${DIR}/assets/condaondemand.sh >> ~/.zshrc
 fi
 
-source ~/.zshrc
+source ${DIR}/assets/condaondemand.sh
 activate_conda
 conda create -y --name dl
-echo "Conda has been installed. It is disabled by default. To activate it in a terminal session, type "dl". You can configure this in the bashrc or zshrc file."
+echo "Conda has been installed. It is disabled by default. To activate it in a terminal session, type 'dl'. You can configure this in the bashrc or zshrc file."
