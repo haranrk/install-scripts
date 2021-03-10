@@ -66,6 +66,28 @@
     fi
 }
 
+7_func () {
+    if [[ $OSTYPE == "darwin"* ]]; then
+        # From https://formulae.brew.sh
+        echo "Installing rectangle"
+        brew install --cask rectangle
+        echo "Installing obsidian"
+        brew install --cask obsidian
+        echo "Installing notion"
+        brew install --cask notion
+        echo "Installing mac-fan-control"
+        brew install --cask macs-fan-control
+        echo "Installing bitwarden"
+        brew install --cask bitwarden
+
+
+
+
+
+    fi
+
+}
+
 echo "Choose components to be installed by comma-separating serial numbers:"
 echo "1. Initial environment setup and core programs (git, neovim, xclip, tmux)"
 echo "2. Install zsh, zplugin and nerd-font"
