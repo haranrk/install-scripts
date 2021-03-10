@@ -5,8 +5,6 @@
         echo "Detected macOS"
         brew install git neovim xclip tmux
         brew install --cask visual-studio-code iterm2
-	bash setups/setup_git.sh
-
 
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
