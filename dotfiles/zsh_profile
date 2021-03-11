@@ -17,6 +17,7 @@ alias vim="nvim"
 alias duh="du -hs"
 alias duhls='du -hs $(ls)'
 alias gd="gallery-dl"
+alias rr=". ranger"
 
 #---General settings------------------
 setopt no_share_history

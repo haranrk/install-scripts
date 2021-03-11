@@ -79,6 +79,8 @@
         brew install --cask macs-fan-control
         echo "Installing bitwarden"
         brew install --cask bitwarden
+        echo "Installing unarchiver"
+        brew install --cask the-unarchiver
 
 
 
