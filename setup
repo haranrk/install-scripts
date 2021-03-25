@@ -3,6 +3,9 @@
     echo "Installing git, neovim, xclip, ranger and tmux"
     if [[ $OSTYPE == "darwin"* ]]; then
         echo "Detected macOS"
+        echo "Installing brew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo "Installating applications"
         brew install git neovim xclip tmux ranger 
         brew install --cask visual-studio-code iterm2
 
