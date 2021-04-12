@@ -39,7 +39,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 	let g:deoplete#enable_at_startup = 1
-        let g:python3_host_prog = '/Users/haranrk/miniconda/envs/dl/bin/python'
+        let g:python3_host_prog = '$HOME/miniconda/envs/dl/bin/python'
         let g:neosnippet#enable_completed_snippet = 1
         call deoplete#custom#option({
         \ 'auto_complete_delay': 0,
