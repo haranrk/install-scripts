@@ -28,6 +28,7 @@ alias duh="du -hs"
 alias duhls='du -hs $(ls)'
 alias gd="gallery-dl"
 alias rr=". ranger"
+alias tx="tmuxinator"
 unalias tad
 #---Custom functions------------------
 #bundle '<git-user>/<repo>'
