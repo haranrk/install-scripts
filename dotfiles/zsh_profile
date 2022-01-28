@@ -1,8 +1,8 @@
 #---Zsh plugins/settings------------------
 plugins+=(git vi-mode osx z web-search tmux colored-man-pages catimg) 
-plugins+=(almostontop fast-syntax-highlighting zsh-autosuggestions zsh-interactive-cd )
+plugins+=(almostontop fast-syntax-highlighting zsh-autosuggestions  zsh-interactive-cd )
 #TODO 
-#tmux,  vscode
+#tmux,  vscode, 
 
 ZSH=${HOME}/.oh-my-zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
@@ -31,7 +31,7 @@ alias gd="gallery-dl"
 alias rr=". ranger"
 alias tx="tmuxinator"
 unalias tad
-alias ytdlm="youtube-dl -x --embed-thumbnail --audio-format  mp3 --add-metadata -o "%(title)s.%(ext)s" --audio-quality 0"
+alias ytdlm="youtube-dl -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
 #---Custom functions------------------
 #bundle '<git-user>/<repo>'
 zsh_bundle() {
