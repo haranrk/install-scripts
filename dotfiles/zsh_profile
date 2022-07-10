@@ -21,6 +21,7 @@ source $ZSH/oh-my-zsh.sh
 
 #---Aliases------------------
 alias ezsh="vim ~/.zshrc && source ~/.zshrc"
+alias szsh="source ~/.zshrc"
 alias ezp="vim ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
 alias dl="conda activate dl"
@@ -74,6 +75,21 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$dir_fg
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$dir_bg
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$dir_fg
 
+#---Functions-------------------
+##Johnny decimal utilities https://johnnydecimal.com/
+#CD to 
+jdi() {
+  pushd  $JD_ROOT/*/*/$1*
+}
+
+jdc() {
+  pushd  $JD_ROOT/*/$1*
+}
+
+jda() {
+  pushd  $JD_ROOT/$1*
+}
+
 #---Cursor changes based on modes-------------------
 # Activate vim mode.
 bindkey -v
@@ -101,3 +117,5 @@ _fix_cursor() {
 }
 
 precmd_functions+=(_fix_cursor)
+
+

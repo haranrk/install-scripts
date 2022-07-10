@@ -4,7 +4,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 
 	    Plug 'christoomey/vim-tmux-navigator'
 	    Plug 'qpkorr/vim-renamer'
-	    Plug 'tpope/vim-fugitive'
+	    "Plug 'tpope/vim-fugitive'
 	    Plug 'tpope/vim-surround'
 	    Plug 'tpope/vim-repeat'
             Plug 'tpope/vim-speeddating'
