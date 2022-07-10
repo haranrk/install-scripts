@@ -79,15 +79,15 @@ POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$dir_fg
 ##Johnny decimal utilities https://johnnydecimal.com/
 #CD to 
 jdi() {
-  pushd  $JD_ROOT/*/*/$1*
+  cd  $JD_ROOT/*/*/$1*
 }
 
 jdc() {
-  pushd  $JD_ROOT/*/$1*
+  cd  $JD_ROOT/*/$1*
 }
 
 jda() {
-  pushd  $JD_ROOT/$1*
+  cd  $JD_ROOT/$1*
 }
 
 #---Cursor changes based on modes-------------------

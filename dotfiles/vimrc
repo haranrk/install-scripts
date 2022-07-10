@@ -21,14 +21,14 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
             Plug 'ujihisa/neco-look'
             Plug 'Shougo/neosnippet'
             Plug 'Shougo/neosnippet-snippets'
-            Plug 'vimwiki/vimwiki'
+            "Plug 'vimwiki/vimwiki'
             Plug 'rhysd/vim-grammarous'
             " UI
 	    Plug 'itchyny/lightline.vim'
             Plug 'junegunn/goyo.vim'
             Plug 'junegunn/limelight.vim'
             Plug 'junegunn/seoul256.vim'
-            Plug 'mhinz/vim-startify'
+            "Plug 'mhinz/vim-startify'
 
             Plug 'alvan/vim-closetag'
             Plug 'mattn/emmet-vim'
