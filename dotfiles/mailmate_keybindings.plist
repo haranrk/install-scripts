@@ -42,7 +42,9 @@
 		"l" = "goToMailbox:";
 		"i" = ( "goToMailbox:", "INBOX" );
 		"t" = ( "goToMailbox:", "SENT" );
+    "g" = "selectFirstMessageRow:";
 	};
+  "G" = "selectLastMessageRow:";
 
 	"*" = {
 		"a" = "selectAll:";
