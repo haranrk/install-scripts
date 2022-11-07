@@ -13,6 +13,10 @@ mkdir -p ~/.config/ranger
 ln -f dotfiles/ranger/rc.conf ~/.config/ranger/
 echo "Hard-linked ranger configs"
 
+mkdir -p ~/Library/Application\ Support/MailMate/Resources/KeyBindings/ 
+ln -f dotfiles/mailmate_keybindings.plist ~/Library/Application\ Support/MailMate/Resources/KeyBindings/MyKBDs.plist
+echo "Hard-linked MailMate configs"
+
 if [[ -e ~/.zshrc ]]; then
 	    ln -f dotfiles/zsh_profile ~/.zsh_profile
 	    if [[ -z $(cat ~/.zshrc | grep "source ~/.zsh_profile") ]]; then
