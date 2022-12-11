@@ -82,12 +82,16 @@
         brew install --cask iterm2
         echo "Installing rectangle"
         brew install --cask rectangle
+        echo "Installing shottr"
+        brew install --cask shottr
         echo "Installing obsidian"
         brew install --cask obsidian
         echo "Installing notion"
         brew install --cask notion
         echo "Installing bitwarden"
         brew install --cask bitwarden
+        echo "Installing AppCleaner"
+        brew install --cask appcleaner
         echo "Installing unarchiver"
         brew install --cask the-unarchiver
         echo "Installing fzf"

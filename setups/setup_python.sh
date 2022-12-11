@@ -1,6 +1,6 @@
 if [[ $OSTYPE = "darwin"* ]]; then 
 echo "Detected macos"
-	curl -o miniconda-installer.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+	curl -o miniconda-installer.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 elif [ $OSTYPE = "linux-gnu" ]; then
 	echo "Detected linux"
 	curl -o miniconda-installer.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
