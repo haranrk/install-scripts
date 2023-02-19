@@ -19,6 +19,7 @@
 	"a"	= "replyAll:";
 	"f"	= "forwardMessage:";
 	"^s"	= "saveDocument:";
+	"C" = "showCorrespondence:";
 	// l Label	
 	"v"	= "moveToMailbox:";
 	"#"   = "deleteMessage:";

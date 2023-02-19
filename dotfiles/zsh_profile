@@ -18,6 +18,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 COMPLETION_WAITING_DOTS="true"
 export EDITOR="nvim"
 source $ZSH/oh-my-zsh.sh
+export OBSIDIAN_PATH=~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main/
+export GOOGLE_DRIVE=~/Library/CloudStorage/
 
 #---Aliases------------------
 alias ezsh="vim ~/.zshrc && source ~/.zshrc"
@@ -32,7 +34,7 @@ alias gd="gallery-dl"
 alias rr=". ranger"
 alias tx="tmuxinator"
 unalias tad
-alias ytdlm="youtube-dl -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
+alias ytdlm="yt-dlp -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
 #---Custom functions------------------
 #bundle '<git-user>/<repo>'
 zsh_bundle() {
