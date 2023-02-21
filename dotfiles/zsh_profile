@@ -20,6 +20,7 @@ export EDITOR="nvim"
 source $ZSH/oh-my-zsh.sh
 export OBSIDIAN_PATH=~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main/
 export GOOGLE_DRIVE=~/Library/CloudStorage/
+export ZSHZ_SRC=~/.oh-my-zsh/plugins/z/z.plugin.zsh
 
 #---Aliases------------------
 alias ezsh="vim ~/.zshrc && source ~/.zshrc"
@@ -31,7 +32,7 @@ alias vim="nvim"
 alias duh="du -hs"
 alias duhls='du -hs $(ls)'
 alias gd="gallery-dl"
-alias rr=". ranger"
+alias zz=". ranger"
 alias tx="tmuxinator"
 unalias tad
 alias ytdlm="yt-dlp -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
