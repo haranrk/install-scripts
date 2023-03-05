@@ -1,0 +1,100 @@
+# cmd - return : open -n /Applications/iTerm.app
+# cmd + shift - return : open -n /Applications/Brave\ Browser.app
+# cmd + ctrl - return : code-insiders -n
+
+# Navigation
+hyper - k: yabai -m window --focus north || yabai -m display --focus north; sketchybar --trigger windows_on_spaces
+hyper - j: yabai -m window --focus south || yabai -m display --focus south; sketchybar --trigger windows_on_spaces
+hyper - l: yabai -m window --focus east || yabai -m space --focus next || yabai -m display --focus east; sketchybar --trigger windows_on_spaces
+hyper - h: yabai -m window --focus west || yabai -m space --focus prev || yabai -m display --focus west; sketchybar --trigger windows_on_spaces
+
+hyper - m: yabai -m window --focus stack.next || yabai -m window --focus stack.first; sketchybar --trigger windows_on_spaces
+hyper - n: yabai -m window --focus stack.prev || yabai -m window --focus stack.last; sketchybar --trigger windows_on_spaces
+
+# change space layout
+hyper - d: yabai -m space --layout bsp || yabai -m space --layout stack; sketchybar --trigger window_focus
+hyper - s: yabai -m space --layout stack; sketchybar --trigger window_focus
+hyper - q: yabai -m space --focus 1;
+hyper - w: yabai -m space --focus 2;
+hyper - e: yabai -m space --focus 3;
+hyper - r: yabai -m space --focus 4;
+hyper - t: yabai -m space --focus 5;
+hyper - space: yabai -m window --toggle float; sketchybar --trigger window_focus
+# float / unfloat window and center on screen
+hyper - f: yabai -m window --toggle float;\
+  yabai -m window --grid 1:1:0:0:1:1
+hyper - u: yabai -m window --toggle float;\
+  yabai -m window --grid 6:6:0:0:2:3
+hyper - i: yabai -m window --toggle float;\
+  yabai -m window --grid 6:6:2:0:2:3
+hyper - p: yabai -m window --toggle float;\
+  yabai -m window --grid 6:6:4:0:2:3
+
+# hyper - g: yabai -m window --toggle sticky; yabai -m window --toggle topmost;
+
+# # toggle window fullscreen
+# hyper - f: yabai -m window --toggle zoom-fullscreen; sketchybar --trigger window_focus
+
+# Move window
+cmd + shift - k: yabai -m window --warp north || yabai -m window --display north; sketchybar --trigger windows_on_spaces
+cmd + shift - j: yabai -m window --warp south || yabai -m window --display south; sketchybar --trigger windows_on_spaces
+cmd + shift - l: yabai -m window --warp east || yabai -m  window --space next; sketchybar --trigger windows_on_spaces
+cmd + shift - h: yabai -m window --warp west || yabai -m  window --space prev; sketchybar --trigger windows_on_spaces
+
+cmd + shift + ctrl - k: yabai -m window --stack north; sketchybar --trigger window_focus
+cmd + shift + ctrl - j: yabai -m window --stack south; sketchybar --trigger window_focus
+cmd + shift + ctrl - l: yabai -m window --stack east; sketchybar --trigger window_focus
+cmd + shift + ctrl - h: yabai -m window --stack west; sketchybar --trigger window_focus
+
+# Move window to Space
+hyper - 1: yabai -m window --space 1 && sketchybar --trigger windows_on_spaces WORKSPACES=1 FORCE_CURRENT=true
+hyper - 2: yabai -m window --space 2 && sketchybar --trigger windows_on_spaces WORKSPACES=2  FORCE_CURRENT=true
+hyper - 3: yabai -m window --space 3 && sketchybar --trigger windows_on_spaces WORKSPACES=3  FORCE_CURRENT=true
+hyper - 4: yabai -m window --space 4 && sketchybar --trigger windows_on_spaces WORKSPACES=4  FORCE_CURRENT=true
+hyper - 5: yabai -m window --space 5 && sketchybar --trigger windows_on_spaces WORKSPACES=5  FORCE_CURRENT=true
+hyper - 6: yabai -m window --space 6 && sketchybar --trigger windows_on_spaces WORKSPACES=6  FORCE_CURRENT=true
+hyper - 7: yabai -m window --space 7 && sketchybar --trigger windows_on_spaces WORKSPACES=7  FORCE_CURRENT=true
+hyper - 8: yabai -m window --space 8 && sketchybar --trigger windows_on_spaces WORKSPACES=8  FORCE_CURRENT=true
+hyper - 9: yabai -m window --space 9 && sketchybar --trigger windows_on_spaces WORKSPACES=9  FORCE_CURRENT=true
+cmd + shift - 0: yabai -m window --space 10 && sketchybar --trigger windows_on_spaces WORKSPACES=10 FORCE_CURRENT=true
+cmd + shift + ctrl - 1: yabai -m window --space 11 && sketchybar --trigger windows_on_spaces WORKSPACES=11 FORCE_CURRENT=true
+cmd + shift + ctrl - 2: yabai -m window --space 12 && sketchybar --trigger windows_on_spaces WORKSPACES=12 FORCE_CURRENT=true
+cmd + shift + ctrl - 3: yabai -m window --space 13 && sketchybar --trigger windows_on_spaces WORKSPACES=13 FORCE_CURRENT=true
+shift + lalt - p: yabai -m window --display north;  sketchybar --trigger windows_on_spaces
+shift + lalt - n: yabai -m window --display south;  sketchybar --trigger windows_on_spaces
+
+# Close window
+cmd + shift - w: yabai -m window --close; WINDOW="$(yabai -m query --windows --space 1 | jq '.[0].id')"; yabai -m window --focus $WINDOW
+
+# # Move window to display
+# cmd + ctrl - j : yabai -m window --display next
+# cmd + ctrl - k : yabai -m window --display prev
+
+# rotate tree 90
+# cmd + shift - r : yabai -m space --rotate 90
+
+# Restart yabai
+hyper - z: brew services restart yabai; sketchybar --trigger windows_on_spaces
+# I hate mac.
+# cmd + alt - 2 : skhd -t "²"
+# cmd + alt - 3 : skhd -t "³"
+# cmd + alt - n : skhd -t "ⁿ"
+
+# make floating window fill screen
+# cmd + ctrl + shift - k : yabai -m window --move abs:0:30 \
+# yabai -m window --grid 0:0:0:0:1:1
+
+# increase window size
+#small steps
+# cmd + ctrl - h : yabai -m window --resize left:-20:0
+# cmd + ctrl - k : yabai -m window --resize bottom:0:20
+# cmd + ctrl - j : yabai -m window --resize top:0:-20
+# cmd + ctrl - l : yabai -m window --resize right:20:0
+
+#toogle borders
+# cmd + ctrl - b : yabai -m window --toggle border
+
+# toggle space float
+# cmd + shift + ctrl - f : yabai -m space --layout float; sketchybar --trigger window_focus
+
+# cmd + shift - q : osascript -e 'tell application "System Events" to perform action "AXPress" of (first button whose subrole is "AXCloseButton") of (first window whose subrole is "AXStandardWindow") of (first process whose frontmost is true)'
