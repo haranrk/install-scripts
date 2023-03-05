@@ -69,12 +69,6 @@
     fi
 }
 
-7_func () {
-    echo "Installing ranger plugins"
-    git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
-    git clone https://github.com/rc2dev/ranger-zshz ~/.config/ranger/plugins/ranger-zshz
-
-}
 8_func () {
     if [[ $OSTYPE == "darwin"* ]]; then
         # From https://formulae.brew.sh
@@ -108,7 +102,6 @@ echo "3. Setup dotfiles"
 echo "4. Install python (conda)"
 echo "5. Install tmux plugins"
 echo "6. Install vim plugins"
-echo "7. Install ranger plugins"
 echo "8. Install auxillary programs"
 read tasks
 tasks=$(echo $tasks | tr "," "\n")
