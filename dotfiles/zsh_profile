@@ -1,5 +1,5 @@
 #---Zsh plugins/settings------------------
-plugins+=(git vi-mode macos z web-search tmux colored-man-pages catimg) 
+plugins+=(git vi-mode macos z web-search tmux tmuxinator colored-man-pages catimg) 
 plugins+=(almostontop F-Sy-H zsh-autosuggestions  zsh-interactive-cd )
 #TODO 
 #tmux,  vscode, 
