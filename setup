@@ -1,61 +1,34 @@
 #! /bin/bash
-1_func () {
+1_func() {
     echo "Installing git, neovim, xclip, ranger and tmux"
     if [[ $OSTYPE == "darwin"* ]]; then
         echo "Detected macOS"
         echo "Installing brew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        echo "Installating applications"
-        brew install git neovim xclip tmux ranger 
+        echo "Installing applications"
+        brew install git neovim xclip tmux ranger tmuxinator
         brew install --cask visual-studio-code iterm2
 
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
-        sudo apt -yq install git xclip curl
+        sudo apt -yq install git xclip curl tmuxinator
         sudo apt-get install software-properties-common
-        sudo add-apt-repository ppa:neovim-ppa/stable
         sudo apt-get update
-        sudo apt -yq install neovim
         bash setups/setup_latest_tmux.sh
     fi
     bash setups/setup_git.sh
 }
 
-
-3_func () {
-    echo "Setting up dotfiles"
-    ./setup_dotfiles
-}
-
-4_func () {
-    bash setups/setup_python.sh
-}
-
-5_func () {
-    echo "Installing tmux plugins"
-    if [ ! -d ~/.tmux/plugins/tpm ]; then 
-        echo Cloning tmux plugin manager repository
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-        echo "Installed tmux plugins"
-    fi
-}
-
-6_func () {
-    echo "Installing vim plugins"
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    vim +PlugInstall +qall
-}
-
-2_func () {
+2_func() {
     echo "Installing zsh and oh-my-zsh"
     bash setups/setup_zsh.sh
-    
+
     echo "Installing Roboto Mono Nerd font"
     if [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
         mkdir -p ~/.local/share/fonts
-        cd ~/.local/share/fonts 
-        curl -fLo "Roboto Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete%20Mono.ttf 
+        cd ~/.local/share/fonts
+        curl -fLo "Roboto Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
         curl -fLo "Roboto Mono Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf
         cd -
         echo "Running fc-cache to recache fonts"
@@ -65,11 +38,34 @@
         echo "Detected macOS"
         brew tap homebrew/cask-fonts
         brew install --cask font-roboto-mono-nerd-font
-
     fi
 }
 
-8_func () {
+3_func() {
+    echo "Setting up dotfiles"
+    ./setup_dotfiles
+}
+
+4_func() {
+    bash setups/setup_python.sh
+}
+
+5_func() {
+    echo "Installing tmux plugins"
+    if [ ! -d ~/.tmux/plugins/tpm ]; then
+        echo Cloning tmux plugin manager repository
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        echo "Installed tmux plugins"
+    fi
+}
+
+6_func() {
+    echo "Installing vim plugins"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    vim +PlugInstall +qall
+}
+
+8_func() {
     if [[ $OSTYPE == "darwin"* ]]; then
         # From https://formulae.brew.sh
         echo "Installing iterm2"
@@ -80,8 +76,6 @@
         brew install --cask shottr
         echo "Installing obsidian"
         brew install --cask obsidian
-        echo "Installing notion"
-        brew install --cask notion
         echo "Installing bitwarden"
         brew install --cask bitwarden
         echo "Installing AppCleaner"
@@ -90,9 +84,7 @@
         brew install --cask the-unarchiver
         echo "Installing fzf"
         brew install fzf
-
     fi
-
 }
 
 echo "Choose components to be installed by comma-separating serial numbers:"
@@ -106,7 +98,6 @@ echo "8. Install auxillary programs"
 read tasks
 tasks=$(echo $tasks | tr "," "\n")
 
-for task in $tasks
-do 
-${task}_func
+for task in $tasks; do
+    ${task}_func
 done
