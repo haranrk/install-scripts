@@ -1,9 +1,0 @@
-Intergrate adb-sync
-Load zsh plugins only if they exist
-Add installation of zsh plugins to master
-
-Add vscode config
-
-Fix codefolding autocmd
-https://github.com/spf13/spf13-vim/issues/766
-
