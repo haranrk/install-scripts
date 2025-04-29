@@ -4,7 +4,7 @@ if [[ $OSTYPE = "darwin"* ]]; then
 	# brew install zsh
 elif [ $OSTYPE = "linux-gnu" ]; then
 	echo "Detected linux"
-	sudo apt install zsh
+	sudo apt -y install zsh
 fi
 
 
