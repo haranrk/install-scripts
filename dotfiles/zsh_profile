@@ -34,7 +34,6 @@ alias duhls='du -hs $(ls)'
 alias gd="gallery-dl"
 alias zz=". ranger"
 alias tx="tmuxinator"
-unalias tad
 alias ytdlm="yt-dlp -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
 #---Custom functions------------------
 #bundle '<git-user>/<repo>'
