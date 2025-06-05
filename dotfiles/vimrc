@@ -12,7 +12,8 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'easymotion/vim-easymotion'
 	    Plug 'scrooloose/nerdcommenter'
             Plug 'scrooloose/nerdtree'  " file list
-            Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} "Python syntax highlighter
+            Plug 'vim-denops/denops.vim'
+            Plug 'Shougo/ddc.vim'
             " For func argument completion
             "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
             ""Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
