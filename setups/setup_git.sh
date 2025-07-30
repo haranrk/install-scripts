@@ -7,6 +7,6 @@ echo "Enter your GitHub email: "
 read github_email
 git config --global user.email github_email
 
-ssh-keygen -t rsa -b 4096 -C "haranrajkumar97@gmail.com"
+ssh-keygen -t rsa -b 4096 -C $github_email
 cat ~/.ssh/id_rsa.pub
 echo "Copy the above ssh key and paste it at https://github.com/settings/keys"
