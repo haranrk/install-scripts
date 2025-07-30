@@ -12,7 +12,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
 	    Plug 'easymotion/vim-easymotion'
 	    Plug 'scrooloose/nerdcommenter'
             Plug 'scrooloose/nerdtree'  " file list
-            Plug 'vim-denops/denops.vim'
+            "Plug 'vim-denops/denops.vim'
             Plug 'Shougo/ddc.vim'
             " For func argument completion
             "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
