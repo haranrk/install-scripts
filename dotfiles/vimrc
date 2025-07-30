@@ -85,7 +85,7 @@ inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 "Keybindings
-set pastetoggle=<F2>
+"set pastetoggle=<F2>
 nnoremap ,<space> :nohl<CR>
 noremap <C-S> :w<CR>
 noremap <Tab> :tabnext<CR>

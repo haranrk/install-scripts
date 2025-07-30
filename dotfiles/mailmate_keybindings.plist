@@ -41,7 +41,8 @@
 		// g then c	Go to 'Contacts'	Takes you to your Contacts list.
 		"d" = ( "goToMailbox:", "DRAFTS" );
 		"l" = "goToMailbox:";
-		"i" = ( "goToMailbox:", "A1346931-0271-4CD4-81DF-B2AC484DD25F" );
+		"i" = ( "goToMailbox:", "22F4689E-44D0-4EAA-92AD-3C5AD8176997" );
+		"S" = ( "goToMailbox:", "08AD4140-FED8-4204-96AA-A80EEE37C055" );
 		"I" = ( "goToMailbox:", "INBOX" );
 		"t" = ( "goToMailbox:", "SENT" );
     "g" = "selectFirstMessageRow:";
