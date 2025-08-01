@@ -7,7 +7,7 @@
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         echo "Installing applications"
         brew install git neovim xclip tmux ranger tmuxinator
-        brew install --cask visual-studio-code iterm2
+        brew install --cask iterm2 cursor
 
     elif [ $OSTYPE = "linux-gnu" ]; then
         echo "Detected linux"
@@ -36,7 +36,6 @@
 
     elif [[ $OSTYPE == "darwin"* ]]; then
         echo "Detected macOS"
-        brew tap homebrew/cask-fonts
         brew install --cask font-roboto-mono-nerd-font
     fi
 }
@@ -84,6 +83,8 @@
         brew install --cask the-unarchiver
         echo "Installing fzf"
         brew install fzf
+        echo "Installing mailmate"
+        brew install --cask mailmate
     fi
 }
 
