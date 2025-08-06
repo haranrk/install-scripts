@@ -50,6 +50,8 @@ elif [ $(uname -s) = "Darwin" ]; then
     mkdir -p ~/Library/Application\ Support/MailMate/Resources/KeyBindings/ 
     ln -f dotfiles/mailmate_keybindings.plist ~/Library/Application\ Support/MailMate/Resources/KeyBindings/MyKBDs.plist
     echo "Linked MailMate config"
+    cp -r dotfiles/mailmate_bundles/* ~/Library/Application\ Support/MailMate/Bundles/
+    echo "Linked MailMate bundles"
 else 
     echo $OSTYPE
     echo "OS not recognized"
