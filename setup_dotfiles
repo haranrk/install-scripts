@@ -13,6 +13,9 @@ echo "Linked tmux.conf"
 ln -f dotfiles/vimrc ~/.vimrc_haran
 echo "Linked vimrc"
 
+ln -f dotfiles/gitconfig ~/.gitconfig
+echo "Linked gitconfig"
+
 if [[ -e ~/.zshrc ]]; then
 	    ln -f dotfiles/zsh_profile ~/.zsh_profile
 	    if [[ -z $(cat ~/.zshrc | grep "source ~/.zsh_profile") ]]; then
@@ -56,4 +59,3 @@ else
     echo $OSTYPE
     echo "OS not recognized"
 fi
-
