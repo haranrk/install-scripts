@@ -12,10 +12,12 @@
 	rebase = true
 [alias]
         stack = "!f() { BRANCH=${1-HEAD}; MERGE_BASE=$(git merge-base-origin $BRANCH); git log --decorate-refs=refs/heads --simplify-by-decoration --pretty=format:\"%(decorate:prefix=,suffix=,tag=,separator=%n)\" $MERGE_BASE..$BRANCH; };f "
-        push-stack = "!f() { BRANCH=${1-HEAD};  git stack $BRANCH | xargs -I {} git push --force-with-lease origin {}; };f"
+        push-stack = "!f() { BRANCH=${1-HEAD}; git stack $BRANCH | xargs -I {} git push --force-with-lease origin {}; };f"
 	default-branch = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'" 
 	merge-base-origin = "!f() { git merge-base ${1-HEAD} origin/$(git default-branch); };f "
-        lg = lg1
+        stack-prev = "!f() { BRANCH_REF=${1-HEAD}; BRANCH_NAME=$(git rev-parse --abbrev-ref \"$BRANCH_REF\"); git for-each-ref --format='%(refname:short)' refs/heads | while read -r CANDIDATE; do [ \"$CANDIDATE\" = \"$BRANCH_NAME\" ] && continue; if git merge-base --is-ancestor \"$CANDIDATE\" \"$BRANCH_REF\"; then DIST=$(git rev-list --count \"$CANDIDATE..$BRANCH_REF\"); if [ \"$DIST\" -gt 0 ]; then printf '%s\\t%s\\n' \"$DIST\" \"$CANDIDATE\"; fi; fi; done | sort -n -k1,1 | awk -F'\\t' 'NR==1 {print $2}'; };f"
+        stack-next = "!f() { BRANCH_REF=${1-HEAD}; BRANCH_NAME=$(git rev-parse --abbrev-ref \"$BRANCH_REF\"); git for-each-ref --format='%(refname:short)' refs/heads | while read -r CANDIDATE; do [ \"$CANDIDATE\" = \"$BRANCH_NAME\" ] && continue; if git merge-base --is-ancestor \"$BRANCH_REF\" \"$CANDIDATE\"; then DIST=$(git rev-list --count \"$BRANCH_REF..$CANDIDATE\"); if [ \"$DIST\" -gt 0 ]; then printf '%s\\t%s\\n' \"$DIST\" \"$CANDIDATE\"; fi; fi; done | sort -n -k1,1 | awk -F'\\t' 'NR==1 {print $2}'; };f"
+        lg = lg1 
         lg1 = lg1-specific --all
         lg2 = lg2-specific --all
         lg3 = lg3-specific --all
