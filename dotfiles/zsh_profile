@@ -12,7 +12,7 @@ export LC_CTYPE=en_US.UTF-8
 export TERM="xterm-256color"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 COMPLETION_WAITING_DOTS="true"
-export EDITOR="vim"
+export EDITOR="nvim"
 source $ZSH/oh-my-zsh.sh
 export ZSHZ_SRC=~/.oh-my-zsh/plugins/z/z.plugin.zsh
 
@@ -28,6 +28,7 @@ alias gd="gallery-dl"
 alias zz=". ranger"
 alias tx="tmuxinator"
 alias ytdlm="yt-dlp -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
+alias dpython="python -m debugpy --listen localhost:6789 --wait-for-client"
 #---Custom functions------------------
 #bundle '<git-user>/<repo>'
 zsh_bundle() {
@@ -105,6 +106,15 @@ function zle-keymap-select {
         echo -ne '\e[5 q'
       fi
 }
+
+function claude_commit() {
+    claude -p "Analyse the diff and create a commit using conventional commit syntax. Keep it concise, don't add co-authors." --allowedTools "Bash(git add:*),Bash(git diff:*),Bash(git commit:*),Read" --permission-mode acceptEdits
+}
+
+function claude_pr() {
+    claude -p "Analyse the diff from the base branch and update the pr description. Use the cmd gh pr view --json baseRefName --jq .baseRefName to find the base branch. If the PR has not been created yet, don't create it. The PR should have the the following sections \n- Summary: 2-3 lines on what the PR does. \n- Changes: Concise bulleted list of changes. If there are a lot of changes, group the bullets into high-level themes. \n\nDo not use emojis or give detailed changes." --allowedTools "Bash(git add:*),Bash(git diff:*),Bash(git commit:*),Bash(gh pr edit:*),Bash(gh pr view:*),Read" --permission-mode acceptEdits
+}
+
 zle -N zle-keymap-select
 
 _fix_cursor() {
