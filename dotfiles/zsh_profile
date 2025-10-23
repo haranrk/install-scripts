@@ -37,6 +37,25 @@ zsh_bundle() {
 	IFS=" "
 	git clone https://github.com/${STR[0]}/${STR[1]} ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/${STR[1]}
 }
+
+open_current_pr() {
+	local pr_url
+	pr_url=$(gh pr view --json url --jq .url 2>/dev/null) || {
+		echo "gh failed to resolve the current pull request." >&2
+		return 1
+	}
+	if [[ -z "$pr_url" ]]; then
+		echo "No pull request associated with this branch." >&2
+		return 1
+	fi
+	if command -v open >/dev/null 2>&1; then
+		open "$pr_url"
+	elif command -v xdg-open >/dev/null 2>&1; then
+		xdg-open "$pr_url" >/dev/null 2>&1 &
+	else
+		echo "$pr_url"
+	fi
+}
 #---Powerlevel9k settings-------------------
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -122,5 +141,4 @@ _fix_cursor() {
 }
 
 precmd_functions+=(_fix_cursor)
-
 

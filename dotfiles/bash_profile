@@ -6,4 +6,23 @@ fi
 PS1='\[\033[01;31m\]${ssh_status}\[\033[01;32m\]\D{%a %d.%m}\[\033[01;34m\]|\[\033[01;32m\]\A\[\033[01;34m\]|\[\033[01;32m\]${PWD#"${PWD%/*/*}/"}\[\033[00m\]\$ '
 export LANG=en_IN.UTF-8
 				
+# Helper functions
+open_current_pr() {
+	local pr_url
+	pr_url=$(gh pr view --json url --jq .url 2>/dev/null) || {
+		echo "gh failed to resolve the current pull request." >&2
+		return 1
+	}
+	if [ -z "$pr_url" ]; then
+		echo "No pull request associated with this branch." >&2
+		return 1
+	fi
+	if command -v open >/dev/null 2>&1; then
+		open "$pr_url"
+	elif command -v xdg-open >/dev/null 2>&1; then
+		xdg-open "$pr_url" >/dev/null 2>&1 &
+	else
+		echo "$pr_url"
+	fi
+}
 
