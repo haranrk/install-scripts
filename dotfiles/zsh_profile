@@ -28,33 +28,37 @@ alias gd="gallery-dl"
 alias zz=". ranger"
 alias tx="tmuxinator"
 alias ytdlm="yt-dlp -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
-alias dpython="python -m debugpy --listen localhost:6789 --wait-for-client"
-#---Custom functions------------------
-#bundle '<git-user>/<repo>'
-zsh_bundle() {
-	IFS="/"
-	read -ra STR <<< "$1" 
-	IFS=" "
-	git clone https://github.com/${STR[0]}/${STR[1]} ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/${STR[1]}
+#---Custom commands------------------
+COMMANDS_DIR="${HOME}/.commands"
+if [[ -d "$COMMANDS_DIR" && ":$PATH:" != *":$COMMANDS_DIR:"* ]]; then
+  export PATH="$COMMANDS_DIR:$PATH"
+fi
+
+_jd_cd() {
+  local command_name=$1
+  shift
+  local script_path="$COMMANDS_DIR/$command_name"
+  if [[ ! -x "$script_path" ]]; then
+    echo "Johnny Decimal helper '$command_name' is not installed at $script_path" >&2
+    return 1
+  fi
+  local target
+  if ! target="$("$script_path" "$@")"; then
+    return 1
+  fi
+  cd "$target"
 }
 
-open_current_pr() {
-	local pr_url
-	pr_url=$(gh pr view --json url --jq .url 2>/dev/null) || {
-		echo "gh failed to resolve the current pull request." >&2
-		return 1
-	}
-	if [[ -z "$pr_url" ]]; then
-		echo "No pull request associated with this branch." >&2
-		return 1
-	fi
-	if command -v open >/dev/null 2>&1; then
-		open "$pr_url"
-	elif command -v xdg-open >/dev/null 2>&1; then
-		xdg-open "$pr_url" >/dev/null 2>&1 &
-	else
-		echo "$pr_url"
-	fi
+jdi() {
+  _jd_cd jdi "$@"
+}
+
+jdc() {
+  _jd_cd jdc "$@"
+}
+
+jda() {
+  _jd_cd jda "$@"
 }
 #---Powerlevel9k settings-------------------
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -90,21 +94,6 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$dir_fg
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$dir_bg
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$dir_fg
 
-#---Functions-------------------
-##Johnny decimal utilities https://johnnydecimal.com/
-#CD to 
-jdi() {
-  cd  $JD_ROOT/*/*/$1*
-}
-
-jdc() {
-  cd  $JD_ROOT/*/$1*
-}
-
-jda() {
-  cd  $JD_ROOT/$1*
-}
-
 #---Cursor changes based on modes-------------------
 # Activate vim mode.
 bindkey -v
@@ -126,14 +115,6 @@ function zle-keymap-select {
       fi
 }
 
-function claude_commit() {
-    claude -p "Analyse the diff and create a commit using conventional commit syntax. Keep it concise, don't add co-authors." --allowedTools "Bash(git add:*),Bash(git diff:*),Bash(git commit:*),Read" --permission-mode acceptEdits
-}
-
-function claude_pr() {
-    claude -p "Analyse the diff from the base branch and update the pr description. Use the cmd gh pr view --json baseRefName --jq .baseRefName to find the base branch. If the PR has not been created yet, don't create it. The PR should have the the following sections \n- Summary: 2-3 lines on what the PR does. \n- Changes: Concise bulleted list of changes. If there are a lot of changes, group the bullets into high-level themes. \n\nDo not use emojis or give detailed changes." --allowedTools "Bash(git add:*),Bash(git diff:*),Bash(git commit:*),Bash(gh pr edit:*),Bash(gh pr view:*),Read" --permission-mode acceptEdits
-}
-
 zle -N zle-keymap-select
 
 _fix_cursor() {
@@ -141,4 +122,3 @@ _fix_cursor() {
 }
 
 precmd_functions+=(_fix_cursor)
-

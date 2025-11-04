@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v python >/dev/null 2>&1; then
+  echo "python is required to run debugpy." >&2
+  exit 1
+fi
+
+exec python -m debugpy --listen localhost:6789 --wait-for-client "$@"

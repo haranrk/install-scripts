@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v gh >/dev/null 2>&1; then
+  echo "gh CLI is required to resolve the current pull request." >&2
+  exit 1
+fi
+
+if ! pr_url=$(gh pr view --json url --jq .url 2>/dev/null); then
+  echo "gh failed to resolve the current pull request." >&2
+  exit 1
+fi
+
+if [[ -z "$pr_url" ]]; then
+  echo "No pull request associated with this branch." >&2
+  exit 1
+fi
+
+if command -v open >/dev/null 2>&1; then
+  open "$pr_url"
+elif command -v xdg-open >/dev/null 2>&1; then
+  xdg-open "$pr_url" >/dev/null 2>&1 &
+else
+  echo "$pr_url"
+fi

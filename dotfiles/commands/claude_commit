@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v claude >/dev/null 2>&1; then
+  echo "claude CLI is required to generate the commit message." >&2
+  exit 1
+fi
+
+claude -p "Analyse the diff and create a commit using conventional commit syntax. Keep it concise, don't add co-authors." --allowedTools "Bash(git add:*),Bash(git diff:*),Bash(git commit:*),Read" --permission-mode acceptEdits

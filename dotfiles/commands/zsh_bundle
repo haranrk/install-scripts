@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: zsh_bundle <user/repo>" >&2
+  exit 1
+fi
+
+input=$1
+IFS='/' read -r owner repo <<< "$input"
+
+if [[ -z "${owner:-}" || -z "${repo:-}" ]]; then
+  echo "Expected argument in the form <user>/<repo>" >&2
+  exit 1
+fi
+
+target_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/${repo}"
+
+if [[ -d "$target_dir" ]]; then
+  echo "Target plugin directory already exists: $target_dir" >&2
+  exit 1
+fi
+
+echo "Cloning $owner/$repo into $target_dir"
+# Fetch plugin sources from GitHub to install into oh-my-zsh.
+git clone "https://github.com/${owner}/${repo}" "$target_dir"
