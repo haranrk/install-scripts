@@ -32,25 +32,34 @@ else
 	    echo "Restart the terminal for changes to take effect"
 fi
 
-COMMANDS_DIR="${HOME}/.commands"
-mkdir -p "$COMMANDS_DIR"
-shopt -s nullglob
-command_sources=(dotfiles/commands/*)
-shopt -u nullglob
-for command_file in "${command_sources[@]}"; do
-    ln -f "$command_file" "$COMMANDS_DIR/$(basename "$command_file")"
-done
+repo_root="$(cd "$(dirname "$0")" && pwd)"
+commands_dir="$repo_root/dotfiles/commands"
 
-if [[ -e ~/.zshrc ]]; then
-    if ! grep -Fq '$HOME/.commands' ~/.zshrc; then
-        echo 'export PATH="$HOME/.commands:$PATH"' >> ~/.zshrc
+if [[ ! -d "$commands_dir" ]]; then
+    echo "Commands directory not found at $commands_dir" >&2
+else
+    command_snippet=$'# install-scripts commands\npath_add="'"$commands_dir"$'"\nif [[ -d "$path_add" && ":$PATH:" != *":$path_add:"* ]]; then\n  export PATH="$path_add:$PATH"\nfi\nunset path_add\n'
+
+    if [[ -e ~/.zshrc ]]; then
+        if ! grep -Fq "$commands_dir" ~/.zshrc; then
+            printf '%s\n' "$command_snippet" >> ~/.zshrc
+        fi
     fi
-elif [[ -e ~/.bashrc ]]; then
-    if ! grep -Fq '$HOME/.commands' ~/.bashrc; then
-        echo 'export PATH="$HOME/.commands:$PATH"' >> ~/.bashrc
+
+    if [[ -e ~/.bashrc ]]; then
+        if ! grep -Fq "$commands_dir" ~/.bashrc; then
+            printf '%s\n' "$command_snippet" >> ~/.bashrc
+        fi
     fi
+
+    if [[ -n ${ZDOTDIR:-} && -e "${ZDOTDIR}/.zshrc" ]]; then
+        if ! grep -Fq "$commands_dir" "${ZDOTDIR}/.zshrc"; then
+            printf '%s\n' "$command_snippet" >> "${ZDOTDIR}/.zshrc"
+        fi
+    fi
+
+    echo "Ensured dotfiles command scripts at $commands_dir are on PATH"
 fi
-echo "Installed custom command scripts to $COMMANDS_DIR and ensured it is on PATH"
 
 if [ $(uname -s) = "Linux" ]; then
     echo "Detected linux"

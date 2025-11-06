@@ -29,21 +29,16 @@ alias zz=". ranger"
 alias tx="tmuxinator"
 alias ytdlm="yt-dlp -x --embed-thumbnail --audio-format  mp3 --add-metadata -o \"%(title)s.%(ext)s\" --audio-quality 0"
 #---Custom commands------------------
-COMMANDS_DIR="${HOME}/.commands"
-if [[ -d "$COMMANDS_DIR" && ":$PATH:" != *":$COMMANDS_DIR:"* ]]; then
-  export PATH="$COMMANDS_DIR:$PATH"
-fi
-
 _jd_cd() {
   local command_name=$1
   shift
-  local script_path="$COMMANDS_DIR/$command_name"
-  if [[ ! -x "$script_path" ]]; then
-    echo "Johnny Decimal helper '$command_name' is not installed at $script_path" >&2
+  local command_path
+  if ! command_path="$(command -v "$command_name" 2>/dev/null)"; then
+    echo "Johnny Decimal helper '$command_name' is not available on PATH" >&2
     return 1
   fi
   local target
-  if ! target="$("$script_path" "$@")"; then
+  if ! target="$("$command_path" "$@")"; then
     return 1
   fi
   cd "$target"
