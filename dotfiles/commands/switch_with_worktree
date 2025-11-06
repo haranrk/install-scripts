@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: switch_with_worktree <branch>" >&2
+  exit 1
+fi
+
+branch=$1
+
+if ! repo_root=$(git rev-parse --show-toplevel 2>/dev/null); then
+  echo "This command must be run inside a git repository." >&2
+  exit 1
+fi
+
+cd "${repo_root}"
+
+worktrees_dir="${repo_root}/.worktrees"
+mkdir -p "${worktrees_dir}"
+
+target_worktree="${worktrees_dir}/${branch}"
+
+worktree_registered=false
+while IFS= read -r line; do
+  if [[ ${line} == worktree\ * ]]; then
+    current_worktree=${line#worktree }
+    if [[ ${current_worktree} == "${target_worktree}" ]]; then
+      worktree_registered=true
+      break
+    fi
+  fi
+done < <(git worktree list --porcelain)
+
+if [[ ${worktree_registered} == false ]]; then
+  if [[ -d "${target_worktree}" ]]; then
+    echo "${target_worktree} already exists but is not registered as a worktree." >&2
+    echo "Remove it or register it manually before continuing." >&2
+    exit 1
+  fi
+
+  if git show-ref --verify --quiet "refs/heads/${branch}"; then
+    git worktree add "${target_worktree}" "${branch}"
+  elif git show-ref --verify --quiet "refs/remotes/origin/${branch}"; then
+    git worktree add --track -b "${branch}" "${target_worktree}" "origin/${branch}"
+  else
+    git worktree add -b "${branch}" "${target_worktree}"
+  fi
+fi
+
+cd "${target_worktree}"
+
+exec "${SHELL:-/bin/bash}"
