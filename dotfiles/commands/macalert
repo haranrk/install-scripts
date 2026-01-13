@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -eq 0 ]]; then
+  echo "Usage: macalert <message>" >&2
+  exit 1
+fi
+
+osascript -e "display notification \"$*\""
