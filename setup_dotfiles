@@ -84,6 +84,17 @@ elif [ $(uname -s) = "Darwin" ]; then
     echo "Linked MailMate config"
     cp -r dotfiles/mailmate_bundles/* ~/Library/Application\ Support/MailMate/Bundles/
     echo "Linked MailMate bundles"
+
+    # Cursor settings
+    mkdir -p ~/Library/Application\ Support/Cursor/User
+    ln -sf "$repo_root/dotfiles/cursor/settings.json" ~/Library/Application\ Support/Cursor/User/settings.json
+    echo "Linked Cursor settings.json"
+
+    # Cursor agents & skills (symlink directories)
+    mkdir -p ~/.cursor
+    ln -sfn "$repo_root/dotfiles/cursor/agents" ~/.cursor/agents
+    ln -sfn "$repo_root/dotfiles/cursor/skills" ~/.cursor/skills
+    echo "Linked Cursor agents and skills"
 else 
     echo $OSTYPE
     echo "OS not recognized"

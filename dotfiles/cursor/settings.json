@@ -1,0 +1,224 @@
+{
+    "window.commandCenter": true,
+    "makefile.configureOnOpen": true,
+    "explorer.confirmDelete": false,
+    "launch": {
+        "configurations": [
+            {
+                "name": "Python: Attach to debugpy (aegis)",
+                "type": "debugpy",
+                "request": "attach",
+                "connect": {
+                    "host": "localhost",
+                    "port": 6789
+                },
+                "justMyCode": false
+            }
+        ],
+        "compounds": []
+    },
+    "vim.camelCaseMotion.enable": true,
+    "vim.easymotion": true,
+    "vim.highlightedyank.enable": true,
+    "cursor.general.globalCursorIgnoreList": [
+        "**/.env",
+        "**/.env.local",
+        "**/credentials.json",
+        "**/credentials.*.json",
+        "**/secret.json",
+        "**/secrets.json",
+        "**/*.key",
+        "**/*.pem",
+        "**/*.pfx",
+        "**/*.p12",
+        "**/*.crt",
+        "**/*.cer",
+        "**/id_rsa",
+        "**/id_dsa",
+        "**/.ssh/id_*",
+        "**/.cursor/mcp.json"
+    ],
+    "dbcode.history.enabled": true,
+    "dbcode.connections": [
+        {
+            "connectionId": "qiQWBixZ4hPWxHERx5pEr",
+            "name": "Aegis FB",
+            "driver": "firebase",
+            "driverOptions": {
+                "authMethod": "adc",
+                "projectId": "friendly-access-450904-h1"
+            },
+            "connectionTimeout": 30,
+            "connectionType": "socket"
+        },
+        {
+            "connectionId": "Gt1ZuhYoGbJuO3DzUDHwl",
+            "name": "Aegis BQ",
+            "driver": "bigquery",
+            "driverOptions": {
+                "authType": "adc",
+                "maxBytes": 0,
+                "proxyMode": false
+            },
+            "username": "friendly-access-450904-h1",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "connectionType": "socket"
+        },
+        {
+            "connectionId": "C6D7er8DpTVjg_KFf4b9S",
+            "name": "Local FS Cache",
+            "driver": "sqlite",
+            "color": "#FF642F",
+            "connectionType": "socket",
+            "socket": "/Users/haran/.cache/reasonable-security/firestore_kv.sqlite",
+            "readOnly": true,
+            "postConnectionSqlType": "inline",
+            "driverOptions": {
+                "extensions": []
+            },
+            "idleTimeout": 0
+        },
+        {
+            "connectionId": "JQinyoVxKiDyFveYCwQFt",
+            "name": "Echoes PROD",
+            "driver": "postgres",
+            "connectionType": "host",
+            "host": "34.29.200.202",
+            "port": 5432,
+            "ssl": false,
+            "authMethod": "password",
+            "username": "postgres",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "postgres",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "connectionTimeout": 30,
+            "pinnedConnectionTimeout": "0"
+        },
+        {
+            "connectionId": "OYSHzGqe_7WBVZzFd-Yqn",
+            "name": "Langfuse",
+            "driver": "clickhouse",
+            "host": "langfuse-clickhouse-prd",
+            "port": 8123,
+            "ssl": false,
+            "username": "default",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "default",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "requestTimeout": 30,
+            "pinnedConnectionTimeout": "0",
+            "connectionType": "host"
+        },
+        {
+            "connectionId": "NN8MbUdpZft3rA57cet_w",
+            "name": "Echoes SQL DB",
+            "driver": "postgres",
+            "connectionType": "host",
+            "host": "34.9.42.189",
+            "port": 5432,
+            "ssl": false,
+            "authMethod": "password",
+            "username": "postgres",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "postgres",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "connectionTimeout": 30,
+            "pinnedConnectionTimeout": "0",
+            "introspection": {
+                "progressive": false
+            }
+        },
+        {
+            "connectionId": "Ik0JxQT5B6bXjlOiD4ls6",
+            "name": "Echoes SQL DB Proxy",
+            "driver": "postgres",
+            "connectionType": "host",
+            "host": "127.0.0.1",
+            "port": 15432,
+            "ssl": false,
+            "authMethod": "password",
+            "username": "postgres",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "postgres",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "connectionTimeout": 30,
+            "pinnedConnectionTimeout": "0",
+            "introspection": {
+                "progressive": false
+            }
+        },
+        {
+            "connectionId": "-m7vNDX2T2I68MhePPQck",
+            "name": "AC DB",
+            "driver": "postgres",
+            "connectionType": "host",
+            "host": "127.0.0.1",
+            "port": 15433,
+            "ssl": false,
+            "authMethod": "password",
+            "username": "postgres",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "postgres",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "connectionTimeout": 30,
+            "pinnedConnectionTimeout": "0",
+            "introspection": {
+                "progressive": false
+            }
+        },
+        {
+            "connectionId": "fI90mmDQhq0-v0QaNSKN0",
+            "name": "AC Proxy",
+            "driver": "postgres",
+            "connectionType": "host",
+            "host": "127.0.0.1",
+            "port": 15433,
+            "ssl": false,
+            "authMethod": "password",
+            "username": "postgres",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "postgres",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "connectionTimeout": 30,
+            "pinnedConnectionTimeout": "0",
+            "introspection": {
+                "progressive": false
+            }
+        }
+    ],
+    "dbcode.resultLocation": "panel",
+    "python.languageServer": "None",
+    "basedpyright.analysis.typeCheckingMode": "basic",
+    "files.associations": {
+        "*.env": "properties"
+    },
+    "workbench.colorCustomizations": {},
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modifications",
+    "remote.SSH.remotePlatform": {
+        "model-training-a100-80gb": "linux"
+    },
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+        "source.fixAll.ruff": "explicit",
+        "source.organizeImports.ruff": "explicit"
+        }
+    },
+    "claudeCode.preferredLocation": "sidebar"
+}
