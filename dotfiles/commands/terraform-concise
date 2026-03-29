@@ -1,0 +1,5 @@
+exec terraform show -json "$@" | jq -r '
+  .resource_changes[]
+  | select(.change.actions != ["no-op"])
+  | "\(.address): \(.change.actions | join(", "))"
+'

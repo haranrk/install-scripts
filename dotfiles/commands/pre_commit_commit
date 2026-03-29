@@ -1,0 +1,1 @@
+pre-commit run; git add -u; gc -m 
