@@ -80,24 +80,6 @@
             "idleTimeout": 0
         },
         {
-            "connectionId": "JQinyoVxKiDyFveYCwQFt",
-            "name": "Echoes PROD",
-            "driver": "postgres",
-            "connectionType": "host",
-            "host": "34.29.200.202",
-            "port": 5432,
-            "ssl": false,
-            "authMethod": "password",
-            "username": "postgres",
-            "password": "",
-            "savePassword": "secretStorage",
-            "database": "postgres",
-            "readOnly": false,
-            "postConnectionSqlType": "inline",
-            "connectionTimeout": 30,
-            "pinnedConnectionTimeout": "0"
-        },
-        {
             "connectionId": "OYSHzGqe_7WBVZzFd-Yqn",
             "name": "Langfuse",
             "driver": "clickhouse",
@@ -113,27 +95,6 @@
             "requestTimeout": 30,
             "pinnedConnectionTimeout": "0",
             "connectionType": "host"
-        },
-        {
-            "connectionId": "NN8MbUdpZft3rA57cet_w",
-            "name": "Echoes SQL DB",
-            "driver": "postgres",
-            "connectionType": "host",
-            "host": "34.9.42.189",
-            "port": 5432,
-            "ssl": false,
-            "authMethod": "password",
-            "username": "postgres",
-            "password": "",
-            "savePassword": "secretStorage",
-            "database": "postgres",
-            "readOnly": false,
-            "postConnectionSqlType": "inline",
-            "connectionTimeout": 30,
-            "pinnedConnectionTimeout": "0",
-            "introspection": {
-                "progressive": false
-            }
         },
         {
             "connectionId": "Ik0JxQT5B6bXjlOiD4ls6",
@@ -197,6 +158,26 @@
             "introspection": {
                 "progressive": false
             }
+        },
+        {
+            "connectionId": "s8R-__oz1fgZB1vx6TgPx",
+            "name": "Clakehouse",
+            "driver": "clickhouse",
+            "host": "clakehouse",
+            "port": 80,
+            "ssl": false,
+            "username": "default",
+            "password": "",
+            "savePassword": "secretStorage",
+            "database": "default",
+            "readOnly": false,
+            "postConnectionSqlType": "inline",
+            "requestTimeout": 30,
+            "pinnedConnectionTimeout": "0",
+            "introspection": {
+                "progressive": false
+            },
+            "connectionType": "host"
         }
     ],
     "dbcode.resultLocation": "panel",
