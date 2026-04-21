@@ -52,6 +52,6 @@ bash setups/setup_git.sh
 ## Development Notes
 
 - Git setup script (`setups/setup_git.sh`) prompts for GitHub credentials and generates SSH keys
-- Python setup installs Miniconda with conda-on-demand activation (type `dl` to activate)
+- Python setup installs uv using the official standalone installer
 - Tmux and Vim plugin installation handled separately through dedicated functions
 - The setup system is designed to be idempotent - running scripts multiple times should be safe

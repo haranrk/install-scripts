@@ -21,7 +21,6 @@ alias ezsh="vim ~/.zshrc && source ~/.zshrc"
 alias szsh="source ~/.zshrc"
 alias ezp="vim ~/.zsh_profile && source ~/.zshrc"
 alias check-zsh-startup='time  zsh -i -c exit'
-alias dl="conda activate dl"
 alias duh="du -hs"
 alias duhls='find . -maxdepth 1 -mindepth 1 -exec du -sh {} + | sort -rh'
 alias gd="gallery-dl"
@@ -59,7 +58,7 @@ jda() {
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=false
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh user dir anaconda root_indicator vcs newline os_icon )
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh user dir root_indicator vcs newline os_icon )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
 
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true
@@ -70,9 +69,6 @@ POWERLEVEL9K_FOLDER_ICON=''
 POWERLEVEL9K_ETC_ICON=''
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-
-POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=''
-POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=''
 
 dir_fg='black'
 dir_bg='006'

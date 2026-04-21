@@ -14,8 +14,7 @@ omz_bundle_theme() {
 
 omz_bundle 'zsh-users/zsh-autosuggestions'
 omz_bundle 'z-shell/F-Sy-H'
-omz_bundle 'Valiev/almostontop'
-omz_bundle 'esc/conda-zsh-completion'
+omz_bundle 'Almostontop/almostontop'
 omz_bundle 'changyuheng/zsh-interactive-cd'
 #omz_bundle 'denysdovhan/spaceship-prompt'
 omz_bundle_theme 'romkatv/powerlevel10k'
